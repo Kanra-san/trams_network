@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tram Network Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0288d1;
+      --primary-dark: #01579b;
+      --secondary: #4fc3f7;
+      --background: #f5f7fa;
+      --card-bg: #ffffff;
+      --text: #333333;
+      --text-light: #666666;
+      --success: #4caf50;
+      --danger: #f44336;
+      --warning: #ff9800;
+      --border: #e0e0e0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 280px;
+      background-color: var(--primary);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-header {
+      padding: 0 20px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-header h2 {
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+
+    .sidebar-menu {
+      padding: 20px 0;
+    }
+
+    .menu-item {
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .menu-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-item.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-left: 4px solid white;
+    }
+
+    .menu-item i {
+      margin-right: 12px;
+      font-size: 1.1rem;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Card Styles */
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .card-header h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    /* Network Graph Styles */
+    .network-graph {
+      width: 100%;
+      height: 600px;
+      background-color: white;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    #graph-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .graph-toolbar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 5px;
+      z-index: 100;
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    select.form-control {
+      height: 40px;
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn i {
+      margin-right: 8px;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-success {
+      background-color: var(--success);
+      color: white;
+    }
+
+    .btn-danger {
+      background-color: var(--danger);
+      color: white;
+    }
+
+    .btn-warning {
+      background-color: var(--warning);
+      color: white;
+    }
+
+    /* Table Styles */
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table th, .table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .table th {
+      background-color: #f5f5f5;
+      font-weight: 500;
+    }
+
+    .table tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .container {
+        flex-direction: column;
+      }
+      
+      .sidebar {
+        width: 100%;
+        height: auto;
+      }
+      
+      .main-content {
+        padding: 15px;
+      }
+    }
+
+    /* Animation for loading */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    .modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: white;
+}
+
+.badge-success {
+    background-color: var(--success);
+}
+
+.badge-danger {
+    background-color: var(--danger);
+}
+
+    .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    color: white;
+    z-index: 1000;
+    display: none;
+}
+
+.notification.success {
+    background-color: #2ecc71;
+}
+
+.notification.error {
+    background-color: #e74c3c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .network-graph {
+        height: 400px !important;
+    }
+
+    .card {
+        padding: 15px !important;
+    }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="fas fa-subway"></i> Tram Network</h2>
+      </div>
+      <div class="sidebar-menu">
+        <div class="menu-item active" onclick="showSection('dashboard')">
+          <i class="fas fa-tachometer-alt"></i> Dashboard
+        </div>
+        <div class="menu-item" onclick="showSection('network')">
+          <i class="fas fa-project-diagram"></i> Network Overview
+        </div>
+        <div class="menu-item" onclick="showSection('stops')">
+          <i class="fas fa-map-marker-alt"></i> Manage Stops
+        </div>
+        <div class="menu-item" onclick="showSection('routes')">
+          <i class="fas fa-route"></i> Route Planning
+        </div>
+        <div class="menu-item" onclick="showSection('optimization')">
+          <i class="fas fa-chart-line"></i> Optimization
+        </div>
+        <div class="menu-item" onclick="showSection('reports')">
+          <i class="fas fa-file-alt"></i> Reports
+        </div>
+        <div class="menu-item" onclick="showSection('settings')">
+          <i class="fas fa-cog"></i> Settings
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <div class="header">
+        <h1>Network Dashboard</h1>
+        <div class="header-actions">
+          <button class="btn btn-primary">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </button>
+          <button class="btn btn-success">
+            <i class="fas fa-plus"></i> Add Stop
+          </button>
+        </div>
+      </div>
+
+      <!-- Dashboard Section -->
+   <div id="dashboard-section" class="content-section">
+  <div class="card">
+    <div class="card-header">
+      <h2>Network Status</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="stat-card">
+            <h3>Active Stops</h3>
+            <p class="stat-value" id="active-stops-count">Loading...</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <h3>Total Stops</h3>
+            <p class="stat-value" id="total-stops-count">Loading...</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <h3>Total Routes</h3>
+            <p class="stat-value" id="total-routes-count">Loading...</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <h3>Recent Activity</h3>
+            <p class="stat-value" id="recent-activity-count">Loading...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2>Recent Activity</h2>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Stop ID</th>
+            <th>Timestamp</th>
+          </tr>
+        </thead>
+        <tbody id="recent-activity-table">
+          <!-- Will be filled by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+      <!-- Network Section -->
+      <div id="network-section" class="content-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2>Network Overview</h2>
+            <div>
+              <button class="btn btn-primary" onclick="refreshGraph()">
+                <i class="fas fa-sync-alt"></i> Refresh
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="network-graph">
+              <div class="graph-toolbar">
+                <button class="btn btn-sm btn-primary" onclick="zoomIn()">
+                  <i class="fas fa-search-plus"></i>
+                </button>
+                <button class="btn btn-sm btn-primary" onclick="zoomOut()">
+                  <i class="fas fa-search-minus"></i>
+                </button>
+                <button class="btn btn-sm btn-primary" onclick="resetView()">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+              <div id="graph-canvas"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stops Section -->
+      <div id="stops-section" class="content-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2>Manage Stops</h2>
+            <div>
+              <button class="btn btn-success" onclick="showAddStopModal()">
+                <i class="fas fa-plus"></i> Add Stop
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Routes</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="stops-table-body">
+                <!-- Filled by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Routes Section -->
+      <div id="routes-section" class="content-section" style="display: none;">
+        <div class="card">
+          <div class="card-header">
+            <h2>Route Planning</h2>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="start-stop">Start Stop</label>
+                  <select id="start-stop" class="form-control">
+                    <option value="">Select a stop</option>
+                    <!-- Filled by JavaScript -->
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="end-stop">End Stop</label>
+                  <select id="end-stop" class="form-control">
+                    <option value="">Select a stop</option>
+                    <!-- Filled by JavaScript -->
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>&nbsp;</label>
+                  <button class="btn btn-primary btn-block" onclick="calculateRoute()">
+                    <i class="fas fa-route"></i> Calculate Route
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div id="route-result" style="margin-top: 20px; display: none;">
+              <h3>Optimal Route</h3>
+              <div id="route-details" class="alert alert-info"></div>
+              <div id="route-visualization" style="height: 300px; background-color: #f5f5f5;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other sections would follow the same pattern -->
+    </div>
+  </div>
+
+  <!-- Add Stop Modal -->
+  <div id="add-stop-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add New Stop</h3>
+        <span class="close" onclick="closeModal('add-stop-modal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="stop-id">Stop ID</label>
+          <input type="text" id="stop-id" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="stop-name">Stop Name</label>
+          <input type="text" id="stop-name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="stop-lat">Latitude</label>
+          <input type="number" id="stop-lat" class="form-control" step="0.000001">
+        </div>
+        <div class="form-group">
+          <label for="stop-lng">Longitude</label>
+          <input type="number" id="stop-lng" class="form-control" step="0.000001">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('add-stop-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="addNewStop()">Save</button>
+      </div>
+    </div>
+  </div>
+  <div id="add-connection-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Add New Connection</h3>
+            <span class="close" onclick="closeModal('add-connection-modal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="connection-from">From Stop</label>
+                <select id="connection-from" class="form-control">
+                    <option value="">Select a stop</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="connection-to">To Stop</label>
+                <select id="connection-to" class="form-control">
+                    <option value="">Select a stop</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="connection-line">Line Number</label>
+                <input type="text" id="connection-line" class="form-control" placeholder="Optional">
+            </div>
+            <div class="form-group">
+                <label for="connection-weight">Travel Time (minutes)</label>
+                <input type="number" id="connection-weight" class="form-control" min="1">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="closeModal('add-connection-modal')">Cancel</button>
+            <button class="btn btn-primary" onclick="addConnection()">Save</button>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Connection Modal -->
+<div id="delete-connection-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Delete Connection</h3>
+            <span class="close" onclick="closeModal('delete-connection-modal')">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="delete-connection-from">From Stop</label>
+                <select id="delete-connection-from" class="form-control">
+                    <option value="">Select a stop</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="delete-connection-to">To Stop</label>
+                <select id="delete-connection-to" class="form-control">
+                    <option value="">Select a stop</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="closeModal('delete-connection-modal')">Cancel</button>
+            <button class="btn btn-danger" onclick="deleteConnection()">Delete</button>
+        </div>
+    </div>
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <script>
+// API Configuration
+const API_BASE = 'http://localhost:5000/api';
+let networkInstance = null;
+
+// UI Elements
+const loadingOverlay = document.getElementById('loading-overlay');
+const notification = document.getElementById('notification');
+
+// Utility Functions
+function showLoading(show) {
+    loadingOverlay.style.display = show ? 'flex' : 'none';
+}
+
+function showNotification(message, type = 'success') {
+    notification.textContent = message;
+    notification.className = `notification ${type}`;
+    notification.style.display = 'block';
+
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 5000);
+}
+
+async function apiCall(endpoint, method = 'GET', body = null) {
+    showLoading(true);
+    try {
+        const options = {
+            method,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        if (body) {
+            options.body = JSON.stringify(body);
+        }
+
+        const response = await fetch(`${API_BASE}${endpoint}`, options);
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.success === false) {
+            throw new Error(data.message || 'Request failed');
+        }
+
+        return data.data || data; // Handle both formats
+    } catch (error) {
+        console.error(`API call failed (${endpoint}):`, error);
+        showNotification(error.message, 'error');
+        throw error;
+    } finally {
+        showLoading(false);
+    }
+}
+
+// Initialization
+document.addEventListener('DOMContentLoaded', async function() {
+    await initializeApp();
+});
+
+// Call this in initializeApp()
+async function initializeApp() {
+    try {
+        const [stops, stats] = await Promise.all([
+            apiCall('/stops/status'),
+            apiCall('/stats')
+        ]);
+
+        renderStopsTable(stops);
+        renderStatistics(stats);
+        populateStopDropdowns(stops.active.concat(stops.inactive));
+        populateConnectionDropdowns(stops.active.concat(stops.inactive));
+
+        setTimeout(initializeNetworkGraph, 500);
+    } catch (error) {
+        console.error('Initialization error:', error);
+        showNotification('Failed to load initial data', 'error');
+    }
+}
+
+// Stop Management
+async function renderStopsTable() {
+    try {
+        const stops = await apiCall('/stops/status');
+        const tbody = document.getElementById('stops-table-body');
+        tbody.innerHTML = '';
+
+        // Render active stops
+        stops.active.forEach(stop => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${stop.id}</td>
+                <td>${stop.name}</td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td>
+                    <button class="btn btn-sm btn-primary" onclick="editStop('${stop.id}')">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteStop('${stop.id}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        // Render inactive stops
+        stops.inactive.forEach(stop => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${stop.id}</td>
+                <td>${stop.name}</td>
+                <td><span class="badge badge-danger">Inactive</span></td>
+                <td>
+                    <button class="btn btn-sm btn-primary" onclick="editStop('${stop.id}')">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-success" onclick="activateStop('${stop.id}')">
+                        <i class="fas fa-power-off"></i>
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error loading stops:', error);
+    }
+}
+
+async function populateConnectionDropdowns(stops) {
+    const fromSelect = document.getElementById('connection-from');
+    const toSelect = document.getElementById('connection-to');
+    const delFromSelect = document.getElementById('delete-connection-from');
+    const delToSelect = document.getElementById('delete-connection-to');
+
+    // Clear existing options
+    [fromSelect, toSelect, delFromSelect, delToSelect].forEach(select => {
+        while (select.options.length > 1) select.remove(1);
+    });
+
+    // Add stops
+    stops.forEach(stop => {
+        const option = document.createElement('option');
+        option.value = `${stop.name} (${stop.id})`;
+        option.textContent = `${stop.name} (${stop.id})`;
+
+        fromSelect.appendChild(option.cloneNode(true));
+        toSelect.appendChild(option.cloneNode(true));
+        delFromSelect.appendChild(option.cloneNode(true));
+        delToSelect.appendChild(option.cloneNode(true));
+    });
+}
+
+// Network Graph
+async function initializeNetworkGraph() {
+    try {
+        const graphData = await apiCall('/network/graph');
+
+        // Process nodes
+        const nodes = new vis.DataSet(graphData.nodes.map(node => ({
+            id: node.id,
+            label: node.label,
+            color: node.color,
+            x: node.x,
+            y: node.y,
+            shape: 'dot',
+            size: node.color === '#4CAF50' ? 15 : 10,
+            borderWidth: 2
+        })));
+
+        // Process edges
+        const edges = new vis.DataSet(graphData.edges.map(edge => ({
+            from: edge.from,
+            to: edge.to,
+            label: edge.label,
+            color: edge.color,
+            width: 2,
+            arrows: 'to'
+        })));
+
+        // Create or update network
+        const container = document.getElementById('graph-canvas');
+        if (!networkInstance) {
+            networkInstance = new vis.Network(container, { nodes, edges }, {
+                physics: {
+                    enabled: true,
+                    solver: 'forceAtlas2Based',
+                    stabilization: {
+                        iterations: 100
+                    }
+                },
+                nodes: {
+                    font: {
+                        size: 12,
+                        color: '#333'
+                    }
+                },
+                edges: {
+                    smooth: {
+                        type: 'continuous'
+                    }
+                }
+            });
+
+            // Add event listeners
+            networkInstance.on("click", function(params) {
+                if (params.nodes.length) {
+                    showStopDetails(params.nodes[0]);
+                }
+            });
+        } else {
+            networkInstance.setData({ nodes, edges });
+        }
+    } catch (error) {
+        console.error('Error loading network graph:', error);
+    }
+}
+
+function renderStatistics(stats) {
+    // Update counters
+    document.getElementById('total-stops-count').textContent = stats.total_stops;
+    document.getElementById('active-stops-count').textContent = stats.active_stops;
+    document.getElementById('total-routes-count').textContent = stats.total_routes;
+    document.getElementById('recent-activity-count').textContent = stats.recent_activity.length;
+
+    // Update activity table
+    const tableBody = document.getElementById('recent-activity-table');
+    tableBody.innerHTML = '';
+
+    stats.recent_activity.forEach(activity => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${activity.type}</td>
+            <td>${activity.stop_id}</td>
+            <td>${new Date(activity.timestamp).toLocaleString()}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+function renderStopsTable(stopsData) {
+    const tbody = document.getElementById('stops-table-body');
+    tbody.innerHTML = '';
+
+    // Combine active and inactive stops for the table
+    const allStops = [
+        ...stopsData.active.map(s => ({...s, active: true})),
+        ...stopsData.inactive.map(s => ({...s, active: false}))
+    ];
+
+    allStops.forEach(stop => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${stop.id}</td>
+            <td>${stop.name}</td>
+            <td>
+                <span class="badge ${stop.active ? 'badge-success' : 'badge-danger'}">
+                    ${stop.active ? 'Active' : 'Inactive'}
+                </span>
+            </td>
+            <td>
+                <button class="btn btn-sm btn-primary" onclick="editStop('${stop.id}')">
+                    <i class="fas fa-edit"></i>
+                </button>
+                ${stop.active ?
+                    `<button class="btn btn-sm btn-danger" onclick="toggleStopStatus('${stop.id}', false)">
+                        <i class="fas fa-power-off"></i>
+                    </button>` :
+                    `<button class="btn btn-sm btn-success" onclick="toggleStopStatus('${stop.id}', true)">
+                        <i class="fas fa-power-off"></i>
+                    </button>`
+                }
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+// Route Planning
+async function calculateRoute() {
+    try {
+        const startSelect = document.getElementById('start-stop');
+        const endSelect = document.getElementById('end-stop');
+
+        const startId = startSelect.value.split('(')[1].slice(0, -1);
+        const endId = endSelect.value.split('(')[1].slice(0, -1);
+
+        if (!startId || !endId) {
+            throw new Error('Please select both start and end stops');
+        }
+
+        const { path, duration } = await apiCall('/routes/shortest', 'POST', {
+            start: startId,
+            end: endId
+        });
+
+        // Display results
+        document.getElementById('route-details').innerHTML = `
+            <p><strong>Optimal Route</strong></p>
+            <p>Duration: ${duration} minutes</p>
+            <p>Path: ${path.join(' → ')}</p>
+        `;
+
+        // Highlight path on graph
+        highlightPath(path);
+        document.getElementById('route-result').style.display = 'block';
+    } catch (error) {
+        document.getElementById('route-result').style.display = 'none';
+    }
+}
+
+function highlightPath(path) {
+    if (!networkInstance) return;
+
+    // Reset all edges
+    networkInstance.body.data.edges.update(
+        networkInstance.body.data.edges.get().map(edge => ({
+            id: edge.id,
+            color: '#2196F3',
+            width: 2
+        }))
+    );
+
+    // Highlight path edges
+    for (let i = 0; i < path.length - 1; i++) {
+        const from = path[i];
+        const to = path[i+1];
+
+        const edge = networkInstance.body.data.edges.get({
+            filter: e =>
+                (e.from === from && e.to === to) ||
+                (e.from === to && e.to === from)
+        })[0];
+
+        if (edge) {
+            networkInstance.body.data.edges.update({
+                id: edge.id,
+                color: '#FF5722',
+                width: 4
+            });
+        }
+    }
+
+    // Focus on path
+    networkInstance.fit({
+        nodes: path,
+        animation: { duration: 1000 }
+    });
+}
+
+// Stop Operations
+async function showStopDetails(stopId) {
+    try {
+        const stopData = await apiCall(`/stops/${stopId}`);
+
+        // Create and show modal
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
+                <h3>${stopData.info.name} (${stopData.info.id})</h3>
+                <p><strong>Status:</strong> ${stopData.info.active ? 'Active' : 'Inactive'}</p>
+                <p><strong>Coordinates:</strong> ${stopData.info.lat}, ${stopData.info.lng}</p>
+                <p><strong>Lines:</strong> ${stopData.lines.join(', ')}</p>
+                <button class="btn btn-primary" onclick="toggleStopStatus('${stopData.info.id}', ${!stopData.info.active})">
+                    ${stopData.info.active ? 'Deactivate' : 'Activate'} Stop
+                </button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    } catch (error) {
+        console.error('Error loading stop details:', error);
+    }
+}
+
+async function toggleStopStatus(stopId, newStatus) {
+    try {
+        await apiCall(`/stops/${stopId}/status`, 'PUT', { active: newStatus });
+        showNotification(`Stop ${newStatus ? 'activated' : 'deactivated'} successfully`);
+        await Promise.all([renderStopsTable(), initializeNetworkGraph()]);
+        document.querySelector('.modal').remove();
+    } catch (error) {
+        console.error('Error updating stop status:', error);
+    }
+}
+
+async function addNewStop() {
+    try {
+        const stopId = document.getElementById('stop-id').value.trim();
+        const stopName = document.getElementById('stop-name').value.trim();
+        const lat = document.getElementById('stop-lat').value;
+        const lng = document.getElementById('stop-lng').value;
+
+        if (!stopId || !stopName || !lat || !lng) {
+            throw new Error('Please fill all fields');
+        }
+
+        await apiCall('/stops', 'POST', {
+            id: stopId,
+            name: stopName,
+            lat: parseFloat(lat),
+            lng: parseFloat(lng)
+        });
+
+        showNotification('Stop added successfully!');
+        closeModal('add-stop-modal');
+        await Promise.all([renderStopsTable(), populateStopDropdowns(), initializeNetworkGraph()]);
+    } catch (error) {
+        console.error('Error adding stop:', error);
+    }
+}
+
+async function deleteStop(stopId) {
+    if (!confirm('Are you sure you want to delete this stop?')) return;
+
+    try {
+        await apiCall(`/stops/${stopId}`, 'DELETE');
+        showNotification('Stop deleted successfully!');
+        await Promise.all([renderStopsTable(), populateStopDropdowns(), initializeNetworkGraph()]);
+    } catch (error) {
+        console.error('Error deleting stop:', error);
+    }
+}
+
+// Connection Operations
+async function addConnection() {
+    try {
+        const fromStop = document.getElementById('connection-from').value.split('(')[1].slice(0, -1);
+        const toStop = document.getElementById('connection-to').value.split('(')[1].slice(0, -1);
+        const weight = document.getElementById('connection-weight').value;
+
+        if (!fromStop || !toStop || !weight) {
+            throw new Error('Please fill all fields');
+        }
+
+        await apiCall('/connections', 'POST', {
+            from: fromStop,
+            to: toStop,
+            weight: parseFloat(weight),
+            line: document.getElementById('connection-line').value || 'MANUAL'
+        });
+
+        showNotification('Connection added successfully!');
+        closeModal('add-connection-modal');
+        await initializeNetworkGraph();
+    } catch (error) {
+        console.error('Error adding connection:', error);
+    }
+}
+
+async function deleteConnection() {
+    try {
+        const fromStop = document.getElementById('delete-connection-from').value.split('(')[1].slice(0, -1);
+        const toStop = document.getElementById('delete-connection-to').value.split('(')[1].slice(0, -1);
+
+        if (!fromStop || !toStop) {
+            throw new Error('Please select both stops');
+        }
+
+        await apiCall('/connections', 'DELETE', {
+            from: fromStop,
+            to: toStop
+        });
+
+        showNotification('Connection deleted successfully!');
+        closeModal('delete-connection-modal');
+        await initializeNetworkGraph();
+    } catch (error) {
+        console.error('Error deleting connection:', error);
+    }
+}
+
+// Statistics
+async function loadStatistics() {
+    try {
+        const stats = await apiCall('/stats');
+
+        document.getElementById('total-stops').textContent = stats.total_stops;
+        document.getElementById('active-stops').textContent = stats.active_stops;
+        document.getElementById('total-routes').textContent = stats.total_routes;
+
+        const activityList = document.getElementById('recent-activity');
+        activityList.innerHTML = '';
+
+        stats.recent_activity.forEach(activity => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <strong>${activity.type}</strong> on ${activity.stop_id}
+                <small>${new Date(activity.timestamp).toLocaleString()}</small>
+            `;
+            activityList.appendChild(li);
+        });
+    } catch (error) {
+        console.error('Error loading statistics:', error);
+    }
+}
+
+// UI Helpers
+function showAddStopModal() {
+    document.getElementById('add-stop-modal').style.display = 'block';
+}
+
+function showAddConnectionModal() {
+    document.getElementById('add-connection-modal').style.display = 'block';
+}
+
+function showDeleteConnectionModal() {
+    document.getElementById('delete-connection-modal').style.display = 'block';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+function refreshGraph() {
+    initializeNetworkGraph();
+}
+
+function zoomIn() {
+    if (networkInstance) {
+        networkInstance.moveTo({ scale: networkInstance.getScale() * 1.2 });
+    }
+}
+
+function zoomOut() {
+    if (networkInstance) {
+        networkInstance.moveTo({ scale: networkInstance.getScale() / 1.2 });
+    }
+}
+
+function resetView() {
+    if (networkInstance) {
+        networkInstance.fit();
+    }
+}
+
+// Section Navigation
+function showSection(sectionId) {
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.style.display = 'none';
+    });
+    document.getElementById(sectionId + '-section').style.display = 'block';
+
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    event.currentTarget.classList.add('active');
+
+    const titles = {
+        'dashboard': 'Network Dashboard',
+        'network': 'Network Overview',
+        'stops': 'Manage Stops',
+        'routes': 'Route Planning',
+        'optimization': 'Optimization',
+        'reports': 'Reports',
+        'settings': 'Settings'
+    };
+    document.querySelector('.header h1').textContent = titles[sectionId];
+}
+</script>
+
+<div id="loading-overlay" class="loading-overlay">
+    <div class="loading"></div>
+</div>
+
+<div id="notification" class="notification"></div>
+</body>
+</html>

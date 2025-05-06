@@ -1,0 +1,110 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.sidebar {
+    background-color: #343a40;
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.sidebar .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+}
+
+.sidebar .card-header {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .form-control, .sidebar .form-select {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.sidebar .form-control:focus, .sidebar .form-select:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    box-shadow: none;
+}
+
+.sidebar .btn {
+    margin-bottom: 10px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+#network-graph {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-label {
+    font-weight: bold;
+}
+
+.stat-value {
+    color: #17a2b8;
+}
+
+.path-step {
+    padding: 5px 10px;
+    margin: 2px 0;
+    background-color: #e9ecef;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.path-duration {
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 10px;
+}
+
+.list-group-item-action {
+    cursor: pointer;
+}
+
+.list-group-item-action:hover {
+    background-color: #f8f9fa;
+}
+
+.stop-line-badge {
+    margin-right: 5px;
+}
+
+.traffic-heatmap {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+}
+
+.connection-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto;
+    }
+}

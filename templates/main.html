@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tram Network Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <h1 class="text-center mb-4">Tram Network</h1>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Network Stats</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="stats-container">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Find Shortest Path</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="start-stop" class="form-label">From:</label>
+                            <select class="form-select" id="start-stop">
+                                <option value="">Select start stop</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="end-stop" class="form-label">To:</label>
+                            <select class="form-select" id="end-stop">
+                                <option value="">Select end stop</option>
+                            </select>
+                        </div>
+                        <button id="find-path-btn" class="btn btn-primary w-100">Find Path</button>
+                        <div id="path-result" class="mt-3"></div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Stop Management</h5>
+                    </div>
+                    <div class="card-body">
+                        <button id="toggle-stops-btn" class="btn btn-secondary w-100 mb-2">Toggle Stops</button>
+                        <button id="add-stop-btn" class="btn btn-success w-100 mb-2">Add Stop</button>
+                        <button id="connect-stops-btn" class="btn btn-info w-100">Connect Stops</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 main-content">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2>Network Visualization</h2>
+                        <div>
+                            <button id="refresh-btn" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="network-graph" style="height: 600px;"></div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h3>Stop Details</h3>
+                    </div>
+                    <div class="card-body" id="stop-details">
+                        <p class="text-muted">Select a stop from the graph to view details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal fade" id="stopModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="stopModalLabel">Stop Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="stopModalBody">
+                    Loading stop information...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addStopModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Stop</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-stop-form">
+                        <div class="mb-3">
+                            <label for="stop-id" class="form-label">Stop ID</label>
+                            <input type="text" class="form-control" id="stop-id" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stop-name" class="form-label">Stop Name</label>
+                            <input type="text" class="form-control" id="stop-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="latitude" class="form-label">Latitude</label>
+                            <input type="number" step="0.000001" class="form-control" id="latitude" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="longitude" class="form-label">Longitude</label>
+                            <input type="number" step="0.000001" class="form-control" id="longitude" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="save-stop-btn">Save Stop</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="connectStopsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Connect Stops</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="connect-stops-form">
+                        <div class="mb-3">
+                            <label for="from-stop" class="form-label">From Stop</label>
+                            <select class="form-select" id="from-stop" required>
+                                <option value="">Select stop</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="to-stop" class="form-label">To Stop</label>
+                            <select class="form-select" id="to-stop" required>
+                                <option value="">Select stop</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="travel-time" class="form-label">Travel Time (minutes)</label>
+                            <input type="number" class="form-control" id="travel-time" min="1" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="save-connection-btn">Save Connection</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="toggleStopsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Toggle Stop Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="toggleStopTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="active-tab" data-bs-toggle="tab" data-bs-target="#active-stops" type="button" role="tab">Active Stops</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="inactive-tab" data-bs-toggle="tab" data-bs-target="#inactive-stops" type="button" role="tab">Inactive Stops</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-3" id="toggleStopTabsContent">
+                        <div class="tab-pane fade show active" id="active-stops" role="tabpanel">
+                            <div class="list-group" id="active-stops-list">
+                                <!-- Active stops will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="inactive-stops" role="tabpanel">
+                            <div class="list-group" id="inactive-stops-list">
+                                <!-- Inactive stops will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/dist/vis-network.min.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
