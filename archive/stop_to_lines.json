@@ -1,0 +1,700 @@
+{
+    "POŚWIĘTNE": [
+        "1",
+        "15",
+        "7"
+    ],
+    "WOŁOWSKA": [
+        "15"
+    ],
+    "KĘPIŃSKA": [
+        "15"
+    ],
+    "KAMIEŃSKIEGO": [
+        "15"
+    ],
+    "BRONIEWSKIEGO": [
+        "15"
+    ],
+    "TRZEBNICKA": [
+        "16"
+    ],
+    "DWORZEC NADODRZE": [
+        "1",
+        "10",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "2",
+        "20",
+        "22",
+        "3",
+        "4",
+        "5",
+        "7",
+        "8",
+        "9"
+    ],
+    "SŁOWIAŃSKA": [
+        "17"
+    ],
+    "NOWOWIEJSKA": [
+        "23"
+    ],
+    "WYSZYŃSKIEGO": [
+        "16"
+    ],
+    "PRUSA": [
+        "16"
+    ],
+    "PIASTOWSKA": [
+        "19"
+    ],
+    "PL. GRUNWALDZKI": [
+        "1",
+        "10",
+        "12",
+        "13",
+        "16",
+        "19",
+        "2",
+        "4"
+    ],
+    "KLINIKI - POLITECHNIKA WROCŁAWSKA": [
+        "19"
+    ],
+    "HALA STULECIA": [
+        "19"
+    ],
+    "ZOO": [
+        "1",
+        "10",
+        "19",
+        "2",
+        "4"
+    ],
+    "TRAMWAJOWA": [
+        "10"
+    ],
+    "CHEŁMOŃSKIEGO": [
+        "10"
+    ],
+    "PIRAMOWICZA (KAMPUS BISKUPIN)": [
+        "10"
+    ],
+    "SPÓŁDZIELCZA": [
+        "10"
+    ],
+    "BISKUPIN": [
+        "1",
+        "10",
+        "2",
+        "4"
+    ],
+    "ZAJEZDNIA OŁBIN": [
+        "22"
+    ],
+    "REJA": [
+        "10"
+    ],
+    "KATEDRA": [
+        "10"
+    ],
+    "URZĄD WOJEWÓDZKI (MUZEUM NARODOWE)": [
+        "10"
+    ],
+    "GALERIA DOMINIKAŃSKA": [
+        "10",
+        "11",
+        "12",
+        "13",
+        "17",
+        "2",
+        "23",
+        "3",
+        "5",
+        "8",
+        "9"
+    ],
+    "WZGÓRZE PARTYZANTÓW": [
+        "23"
+    ],
+    "DWORZEC GŁÓWNY": [
+        "10",
+        "12",
+        "13",
+        "18",
+        "19",
+        "2",
+        "22",
+        "23",
+        "3",
+        "4",
+        "5",
+        "8",
+        "9"
+    ],
+    "ARKADY (CAPITOL)": [
+        "23"
+    ],
+    "ZAOLZIAŃSKA": [
+        "23"
+    ],
+    "WIELKA": [
+        "23"
+    ],
+    "RONDO": [
+        "23"
+    ],
+    "SZTABOWA": [
+        "23"
+    ],
+    "HALLERA": [
+        "23"
+    ],
+    "JASTRZĘBIA": [
+        "23"
+    ],
+    "ORLA": [
+        "23"
+    ],
+    "KRZYKI": [
+        "14",
+        "17",
+        "2",
+        "6",
+        "7"
+    ],
+    "ZAJEZDNIA BOREK": [
+        "23"
+    ],
+    "JEDNOŚCI NARODOWEJ": [
+        "23"
+    ],
+    "NA SZAŃCACH": [
+        "23"
+    ],
+    "PL. BEMA": [
+        "23"
+    ],
+    "OGRÓD BOTANICZNY": [
+        "19"
+    ],
+    "ZAJEZDNIA GAJ": [
+        "22"
+    ],
+    "UNIWERSYTET EKONOMICZNY": [
+        "22"
+    ],
+    "SANOCKA": [
+        "22"
+    ],
+    "DWORZEC AUTOBUSOWY": [
+        "10",
+        "12",
+        "13",
+        "14",
+        "15",
+        "18",
+        "2",
+        "20",
+        "21",
+        "22",
+        "3",
+        "4",
+        "5",
+        "7",
+        "8",
+        "9"
+    ],
+    "KSIĘŻE MAŁE": [
+        "3",
+        "5"
+    ],
+    "GŁUBCZYCKA": [
+        "5"
+    ],
+    "KARWIŃSKA": [
+        "5"
+    ],
+    "PARK WSCHODNI": [
+        "5"
+    ],
+    "ARMII KRAJOWEJ": [
+        "5"
+    ],
+    "KRAKOWSKA (CENTRUM HANDLOWE)": [
+        "5"
+    ],
+    "KRAKOWSKA": [
+        "5"
+    ],
+    "NA NISKICH ŁĄKACH": [
+        "5"
+    ],
+    "PL. ZGODY (MUZEUM ETNOGRAFICZNE)": [
+        "5"
+    ],
+    "PL. WRÓBLEWSKIEGO": [
+        "19"
+    ],
+    "ŚWIDNICKA": [
+        "18"
+    ],
+    "ZAMKOWA": [
+        "18"
+    ],
+    "RYNEK": [
+        "18"
+    ],
+    "PL. JANA PAWŁA II": [
+        "10",
+        "12",
+        "13",
+        "14",
+        "15",
+        "19",
+        "20",
+        "21",
+        "22",
+        "3"
+    ],
+    "MŁODYCH TECHNIKÓW": [
+        "22"
+    ],
+    "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)": [
+        "22"
+    ],
+    "WROCŁAW MIKOŁAJÓW (ZACHODNIA)": [
+        "22"
+    ],
+    "NIEDŹWIEDZIA": [
+        "22"
+    ],
+    "MAŁOPANEWSKA": [
+        "22"
+    ],
+    "KWISKA": [
+        "22"
+    ],
+    "DH ASTRA": [
+        "22"
+    ],
+    "PARK ZACHODNI": [
+        "22"
+    ],
+    "BAJANA": [
+        "22"
+    ],
+    "METALOWCÓW": [
+        "22"
+    ],
+    "PILCZYCE": [
+        "10",
+        "20",
+        "22",
+        "3"
+    ],
+    "TARCZYŃSKI ARENA (LOTNICZA)": [
+        "20"
+    ],
+    "GLINIANKI": [
+        "20"
+    ],
+    "ALEJA ARCHITEKTÓW": [
+        "20"
+    ],
+    "GRABOWA": [
+        "20"
+    ],
+    "KOSMONAUTÓW (SZPITAL)": [
+        "20"
+    ],
+    "KAMIENNOGÓRSKA (OŚRODEK DLA NIEWIDOMYCH)": [
+        "20"
+    ],
+    "ZŁOTNICKA": [
+        "20"
+    ],
+    "WSCHOWSKA": [
+        "20"
+    ],
+    "JELENIOGÓRSKA": [
+        "20"
+    ],
+    "LEŚNICA": [
+        "10",
+        "20",
+        "3"
+    ],
+    "PAULIŃSKA": [
+        "22"
+    ],
+    "DUBOIS": [
+        "22"
+    ],
+    "UNIWERSYTET WROCŁAWSKI": [
+        "12"
+    ],
+    "PARK STAROMIEJSKI": [
+        "18"
+    ],
+    "ŚWIDNICKA (DOM EUROPY)": [
+        "18"
+    ],
+    "RENOMA": [
+        "20"
+    ],
+    "OPERA": [
+        "18"
+    ],
+    "OPORÓW": [
+        "11",
+        "20",
+        "4"
+    ],
+    "GRABISZYŃSKA (CMENTARZ II)": [
+        "20"
+    ],
+    "GRABISZYŃSKA (CMENTARZ)": [
+        "20"
+    ],
+    "FIOŁKOWA": [
+        "20"
+    ],
+    "FAT": [
+        "11",
+        "14",
+        "20",
+        "4",
+        "5"
+    ],
+    "HUTMEN": [
+        "14"
+    ],
+    "BZOWA (CENTRUM HISTORII ZAJEZDNIA)": [
+        "14"
+    ],
+    "PL. SREBRNY": [
+        "14"
+    ],
+    "STALOWA": [
+        "14"
+    ],
+    "PERECA": [
+        "14"
+    ],
+    "GRABISZYŃSKA": [
+        "14"
+    ],
+    "KOLEJOWA": [
+        "14"
+    ],
+    "PL. LEGIONÓW": [
+        "23"
+    ],
+    "PUŁASKIEGO": [
+        "22"
+    ],
+    "KOŚCIUSZKI": [
+        "19"
+    ],
+    "KOMUNY PARYSKIEJ": [
+        "19"
+    ],
+    "URZĄD WOJEWÓDZKI (IMPART)": [
+        "19"
+    ],
+    "MOST GRUNWALDZKI": [
+        "19"
+    ],
+    "NARODOWE FORUM MUZYKI": [
+        "11"
+    ],
+    "GAJOWICKA": [
+        "20"
+    ],
+    "MIELECKA": [
+        "20"
+    ],
+    "OJCA BEYZYMA": [
+        "20"
+    ],
+    "ALEJA PRACY": [
+        "20"
+    ],
+    "DWORZEC GŁÓWNY (STAWOWA)": [
+        "22"
+    ],
+    "KROMERA": [
+        "11",
+        "23",
+        "6"
+    ],
+    "MOSTY WARSZAWSKIE": [
+        "23"
+    ],
+    "DASZYŃSKIEGO": [
+        "23"
+    ],
+    "OŁAWSKA": [
+        "7"
+    ],
+    "WITA STWOSZA": [
+        "7"
+    ],
+    "OSSOLINEUM (UNIWERSYTECKA)": [
+        "7"
+    ],
+    "KOWALE": [
+        "11",
+        "23",
+        "6"
+    ],
+    "BOCIANIA": [
+        "23"
+    ],
+    "GĘSIA": [
+        "23"
+    ],
+    "KWIDZYŃSKA": [
+        "23"
+    ],
+    "KĘTRZYŃSKA": [
+        "23"
+    ],
+    "RADIO I TELEWIZJA": [
+        "17"
+    ],
+    "PRZYJAŹNI": [
+        "17"
+    ],
+    "BRATERSKA": [
+        "17"
+    ],
+    "SĄSIEDZKA": [
+        "17"
+    ],
+    "KLECINA": [
+        "17",
+        "7"
+    ],
+    "KARŁOWICE": [
+        "16",
+        "8"
+    ],
+    "HALA TARGOWA": [
+        "23"
+    ],
+    "PL. NOWY TARG": [
+        "23"
+    ],
+    "JOANNITÓW": [
+        "22"
+    ],
+    "GAJOWA": [
+        "22"
+    ],
+    "PRUDNICKA": [
+        "22"
+    ],
+    "KAMIENNA": [
+        "22"
+    ],
+    "BARDZKA": [
+        "22"
+    ],
+    "NYSKA": [
+        "22"
+    ],
+    "TARNOGAJSKA": [
+        "22"
+    ],
+    "KLIMASA": [
+        "22"
+    ],
+    "TARNOGAJ": [
+        "16",
+        "22",
+        "8"
+    ],
+    "PARK POŁUDNIOWY": [
+        "15",
+        "9"
+    ],
+    "PUŁTUSKA": [
+        "15"
+    ],
+    "WEIGLA (SZPITAL)": [
+        "15"
+    ],
+    "JAWOROWA": [
+        "15"
+    ],
+    "WIŚNIOWA": [
+        "15"
+    ],
+    "GÓRNICKIEGO": [
+        "19"
+    ],
+    "GRUNWALDZKA": [
+        "17"
+    ],
+    "KOCHANOWSKIEGO": [
+        "17"
+    ],
+    "CHOPINA": [
+        "17"
+    ],
+    "KARŁOWICZA": [
+        "17"
+    ],
+    "STADION OLIMPIJSKI": [
+        "17"
+    ],
+    "8 MAJA": [
+        "17"
+    ],
+    "GODEBSKIEGO (AWF WROCŁAW)": [
+        "17"
+    ],
+    "SĘPOLNO": [
+        "12",
+        "13",
+        "17",
+        "9"
+    ],
+    "BUJWIDA": [
+        "13"
+    ],
+    "KOLISTA": [
+        "21"
+    ],
+    "PILCZYCKA (ANIMA)": [
+        "21"
+    ],
+    "MODRA": [
+        "21"
+    ],
+    "GÓRNICZA": [
+        "21"
+    ],
+    "KOZANÓW (DOKERSKA)": [
+        "19"
+    ],
+    "KOZANOWSKA": [
+        "19"
+    ],
+    "DOLMED": [
+        "20"
+    ],
+    "ŚRUBOWA": [
+        "23"
+    ],
+    "WROCŁAWSKI PARK PRZEMYSŁOWY": [
+        "23"
+    ],
+    "PARK BIZNESU": [
+        "23"
+    ],
+    "BABIMOJSKA": [
+        "23"
+    ],
+    "STRZEGOMSKA 148": [
+        "23"
+    ],
+    "NOWODWORSKA": [
+        "23"
+    ],
+    "STRZEGOMSKA (KRZYŻÓWKA)": [
+        "23"
+    ],
+    "ROGOWSKA (P+R)": [
+        "23"
+    ],
+    "ROGOWSKA (OGRODY DZIAŁKOWE)": [
+        "23"
+    ],
+    "BUDZISZYŃSKA": [
+        "23"
+    ],
+    "ZEMSKA": [
+        "23"
+    ],
+    "PARK TYSIĄCLECIA": [
+        "23"
+    ],
+    "WROCŁAW NOWY DWÓR (P+R)": [
+        "23"
+    ],
+    "POMORSKA": [
+        "22"
+    ],
+    "KĘPA MIESZCZAŃSKA": [
+        "22"
+    ],
+    "PL. ORLĄT LWOWSKICH": [
+        "23"
+    ],
+    "HUBSKA (DAWIDA)": [
+        "22"
+    ],
+    "TARCZYŃSKI ARENA (KRÓLEWIECKA)": [
+        "21"
+    ],
+    "DWORSKA": [
+        "21"
+    ],
+    "WEJHEROWSKA (HALA ORBITA)": [
+        "19"
+    ],
+    "PORT POPOWICE": [
+        "19"
+    ],
+    "BIAŁOWIESKA": [
+        "19"
+    ],
+    "PARK POPOWICKI": [
+        "19"
+    ],
+    "WROCŁAW POPOWICE (17.POŁUDNIK)": [
+        "19"
+    ],
+    "DŁUGA (OGRODY DZIAŁKOWE)": [
+        "19"
+    ],
+    "WROCŁAW SZCZEPIN": [
+        "19"
+    ],
+    "MICHALCZYKA": [
+        "19"
+    ],
+    "MOSTY POMORSKIE": [
+        "18"
+    ],
+    "KRYNICKA": [
+        "21"
+    ],
+    "MORWOWA": [
+        "21"
+    ],
+    "ŚWIERADOWSKA": [
+        "21"
+    ],
+    "GAJ": [
+        "18",
+        "21"
+    ],
+    "DWORZEC ŚWIEBODZKI": [
+        "23"
+    ],
+    "SMOLECKA": [
+        "23"
+    ],
+    "GRABISZYNEK": [
+        "20"
+    ]
+}

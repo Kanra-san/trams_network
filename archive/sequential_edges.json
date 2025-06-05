@@ -1,0 +1,3756 @@
+{
+    "1": [
+        {
+            "from": "POŚWIĘTNE",
+            "to": "WOŁOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WOŁOWSKA",
+            "to": "KĘPIŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KĘPIŃSKA",
+            "to": "KAMIEŃSKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIEŃSKIEGO",
+            "to": "BRONIEWSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BRONIEWSKIEGO",
+            "to": "TRZEBNICKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "TRZEBNICKA",
+            "to": "DWORZEC NADODRZE",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "DWORZEC NADODRZE",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "SŁOWIAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "SŁOWIAŃSKA",
+            "to": "NOWOWIEJSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NOWOWIEJSKA",
+            "to": "WYSZYŃSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WYSZYŃSKIEGO",
+            "to": "PRUSA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PRUSA",
+            "to": "PIASTOWSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PIASTOWSKA",
+            "to": "PL. GRUNWALDZKI",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. GRUNWALDZKI",
+            "to": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "to": "HALA STULECIA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALA STULECIA",
+            "to": "ZOO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZOO",
+            "to": "TRAMWAJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "TRAMWAJOWA",
+            "to": "CHEŁMOŃSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "CHEŁMOŃSKIEGO",
+            "to": "PIRAMOWICZA (KAMPUS BISKUPIN)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PIRAMOWICZA (KAMPUS BISKUPIN)",
+            "to": "SPÓŁDZIELCZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SPÓŁDZIELCZA",
+            "to": "BISKUPIN",
+            "weight": 2,
+            "active": "yes"
+        }
+    ],
+    "2": [
+        {
+            "from": "BISKUPIN",
+            "to": "SPÓŁDZIELCZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SPÓŁDZIELCZA",
+            "to": "PIRAMOWICZA (KAMPUS BISKUPIN)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PIRAMOWICZA (KAMPUS BISKUPIN)",
+            "to": "CHEŁMOŃSKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "CHEŁMOŃSKIEGO",
+            "to": "TRAMWAJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "TRAMWAJOWA",
+            "to": "ZOO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ZOO",
+            "to": "HALA STULECIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "HALA STULECIA",
+            "to": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "to": "PL. GRUNWALDZKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. GRUNWALDZKI",
+            "to": "REJA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "REJA",
+            "to": "KATEDRA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KATEDRA",
+            "to": "URZĄD WOJEWÓDZKI (MUZEUM NARODOWE)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "URZĄD WOJEWÓDZKI (MUZEUM NARODOWE)",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "WZGÓRZE PARTYZANTÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WZGÓRZE PARTYZANTÓW",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "ZAOLZIAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ZAOLZIAŃSKA",
+            "to": "WIELKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WIELKA",
+            "to": "RONDO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "RONDO",
+            "to": "SZTABOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SZTABOWA",
+            "to": "HALLERA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALLERA",
+            "to": "JASTRZĘBIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JASTRZĘBIA",
+            "to": "ORLA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ORLA",
+            "to": "KRZYKI",
+            "weight": 3,
+            "active": "yes"
+        }
+    ],
+    "3": [
+        {
+            "from": "KSIĘŻE MAŁE",
+            "to": "GŁUBCZYCKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GŁUBCZYCKA",
+            "to": "KARWIŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KARWIŃSKA",
+            "to": "PARK WSCHODNI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK WSCHODNI",
+            "to": "ARMII KRAJOWEJ",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ARMII KRAJOWEJ",
+            "to": "KRAKOWSKA (CENTRUM HANDLOWE)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KRAKOWSKA (CENTRUM HANDLOWE)",
+            "to": "KRAKOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KRAKOWSKA",
+            "to": "NA NISKICH ŁĄKACH",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NA NISKICH ŁĄKACH",
+            "to": "PL. ZGODY (MUZEUM ETNOGRAFICZNE)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. ZGODY (MUZEUM ETNOGRAFICZNE)",
+            "to": "PL. WRÓBLEWSKIEGO",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. WRÓBLEWSKIEGO",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "ŚWIDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ŚWIDNICKA",
+            "to": "ZAMKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZAMKOWA",
+            "to": "RYNEK",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "RYNEK",
+            "to": "PL. JANA PAWŁA II",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. JANA PAWŁA II",
+            "to": "MŁODYCH TECHNIKÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MŁODYCH TECHNIKÓW",
+            "to": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "to": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "to": "NIEDŹWIEDZIA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NIEDŹWIEDZIA",
+            "to": "MAŁOPANEWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MAŁOPANEWSKA",
+            "to": "KWISKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KWISKA",
+            "to": "DH ASTRA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DH ASTRA",
+            "to": "PARK ZACHODNI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK ZACHODNI",
+            "to": "BAJANA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BAJANA",
+            "to": "METALOWCÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "METALOWCÓW",
+            "to": "PILCZYCE",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PILCZYCE",
+            "to": "TARCZYŃSKI ARENA (LOTNICZA)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "TARCZYŃSKI ARENA (LOTNICZA)",
+            "to": "GLINIANKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GLINIANKI",
+            "to": "ALEJA ARCHITEKTÓW",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ALEJA ARCHITEKTÓW",
+            "to": "GRABOWA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "GRABOWA",
+            "to": "KOSMONAUTÓW (SZPITAL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KOSMONAUTÓW (SZPITAL)",
+            "to": "KAMIENNOGÓRSKA (OŚRODEK DLA NIEWIDOMYCH)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIENNOGÓRSKA (OŚRODEK DLA NIEWIDOMYCH)",
+            "to": "ZŁOTNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ZŁOTNICKA",
+            "to": "WSCHOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WSCHOWSKA",
+            "to": "JELENIOGÓRSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JELENIOGÓRSKA",
+            "to": "LEŚNICA",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "4": [
+        {
+            "from": "OPORÓW",
+            "to": "GRABISZYŃSKA (CMENTARZ II)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA (CMENTARZ II)",
+            "to": "GRABISZYŃSKA (CMENTARZ)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA (CMENTARZ)",
+            "to": "FIOŁKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "FIOŁKOWA",
+            "to": "FAT",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "FAT",
+            "to": "HUTMEN",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "HUTMEN",
+            "to": "BZOWA (CENTRUM HISTORII ZAJEZDNIA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BZOWA (CENTRUM HISTORII ZAJEZDNIA)",
+            "to": "PL. SREBRNY",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. SREBRNY",
+            "to": "STALOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "STALOWA",
+            "to": "PERECA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PERECA",
+            "to": "GRABISZYŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA",
+            "to": "KOLEJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOLEJOWA",
+            "to": "PL. LEGIONÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. LEGIONÓW",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "PUŁASKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PUŁASKIEGO",
+            "to": "KOŚCIUSZKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KOŚCIUSZKI",
+            "to": "KOMUNY PARYSKIEJ",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOMUNY PARYSKIEJ",
+            "to": "PL. WRÓBLEWSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. WRÓBLEWSKIEGO",
+            "to": "URZĄD WOJEWÓDZKI (IMPART)",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "URZĄD WOJEWÓDZKI (IMPART)",
+            "to": "MOST GRUNWALDZKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MOST GRUNWALDZKI",
+            "to": "PL. GRUNWALDZKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. GRUNWALDZKI",
+            "to": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "to": "HALA STULECIA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALA STULECIA",
+            "to": "ZOO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZOO",
+            "to": "TRAMWAJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "TRAMWAJOWA",
+            "to": "CHEŁMOŃSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "CHEŁMOŃSKIEGO",
+            "to": "PIRAMOWICZA (KAMPUS BISKUPIN)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PIRAMOWICZA (KAMPUS BISKUPIN)",
+            "to": "SPÓŁDZIELCZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SPÓŁDZIELCZA",
+            "to": "BISKUPIN",
+            "weight": 2,
+            "active": "yes"
+        }
+    ],
+    "5": [
+        {
+            "from": "KSIĘŻE MAŁE",
+            "to": "GŁUBCZYCKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GŁUBCZYCKA",
+            "to": "KARWIŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KARWIŃSKA",
+            "to": "PARK WSCHODNI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK WSCHODNI",
+            "to": "ARMII KRAJOWEJ",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ARMII KRAJOWEJ",
+            "to": "KRAKOWSKA (CENTRUM HANDLOWE)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KRAKOWSKA (CENTRUM HANDLOWE)",
+            "to": "KRAKOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KRAKOWSKA",
+            "to": "NA NISKICH ŁĄKACH",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NA NISKICH ŁĄKACH",
+            "to": "PL. ZGODY (MUZEUM ETNOGRAFICZNE)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. ZGODY (MUZEUM ETNOGRAFICZNE)",
+            "to": "PL. WRÓBLEWSKIEGO",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. WRÓBLEWSKIEGO",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "WZGÓRZE PARTYZANTÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WZGÓRZE PARTYZANTÓW",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "PL. LEGIONÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. LEGIONÓW",
+            "to": "KOLEJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOLEJOWA",
+            "to": "GRABISZYŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA",
+            "to": "PERECA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PERECA",
+            "to": "STALOWA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "STALOWA",
+            "to": "PL. SREBRNY",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. SREBRNY",
+            "to": "BZOWA (CENTRUM HISTORII ZAJEZDNIA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BZOWA (CENTRUM HISTORII ZAJEZDNIA)",
+            "to": "HUTMEN",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "HUTMEN",
+            "to": "FAT",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "FAT",
+            "to": "FIOŁKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "FIOŁKOWA",
+            "to": "GRABISZYŃSKA (CMENTARZ)",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "6": [
+        {
+            "from": "KROMERA",
+            "to": "MOSTY WARSZAWSKIE",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MOSTY WARSZAWSKIE",
+            "to": "DASZYŃSKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DASZYŃSKIEGO",
+            "to": "NOWOWIEJSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NOWOWIEJSKA",
+            "to": "JEDNOŚCI NARODOWEJ",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "JEDNOŚCI NARODOWEJ",
+            "to": "NA SZAŃCACH",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NA SZAŃCACH",
+            "to": "PL. BEMA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. BEMA",
+            "to": "DUBOIS",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DUBOIS",
+            "to": "UNIWERSYTET WROCŁAWSKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "UNIWERSYTET WROCŁAWSKI",
+            "to": "RYNEK",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "RYNEK",
+            "to": "NARODOWE FORUM MUZYKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NARODOWE FORUM MUZYKI",
+            "to": "RENOMA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "RENOMA",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "ZAOLZIAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ZAOLZIAŃSKA",
+            "to": "WIELKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WIELKA",
+            "to": "RONDO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "RONDO",
+            "to": "SZTABOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SZTABOWA",
+            "to": "HALLERA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALLERA",
+            "to": "JASTRZĘBIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JASTRZĘBIA",
+            "to": "ORLA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ORLA",
+            "to": "KRZYKI",
+            "weight": 3,
+            "active": "yes"
+        }
+    ],
+    "7": [
+        {
+            "from": "POŚWIĘTNE",
+            "to": "WOŁOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WOŁOWSKA",
+            "to": "KĘPIŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KĘPIŃSKA",
+            "to": "KAMIEŃSKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIEŃSKIEGO",
+            "to": "BRONIEWSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BRONIEWSKIEGO",
+            "to": "TRZEBNICKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "TRZEBNICKA",
+            "to": "DWORZEC NADODRZE",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "PAULIŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PAULIŃSKA",
+            "to": "DUBOIS",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DUBOIS",
+            "to": "UNIWERSYTET WROCŁAWSKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "UNIWERSYTET WROCŁAWSKI",
+            "to": "RYNEK",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "RYNEK",
+            "to": "NARODOWE FORUM MUZYKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NARODOWE FORUM MUZYKI",
+            "to": "RENOMA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "RENOMA",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "ZAOLZIAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ZAOLZIAŃSKA",
+            "to": "WIELKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WIELKA",
+            "to": "RONDO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "RONDO",
+            "to": "SZTABOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SZTABOWA",
+            "to": "HALLERA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALLERA",
+            "to": "JASTRZĘBIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JASTRZĘBIA",
+            "to": "ORLA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ORLA",
+            "to": "KRZYKI",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "KRZYKI",
+            "to": "RADIO I TELEWIZJA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "RADIO I TELEWIZJA",
+            "to": "PRZYJAŹNI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PRZYJAŹNI",
+            "to": "BRATERSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BRATERSKA",
+            "to": "SĄSIEDZKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SĄSIEDZKA",
+            "to": "KLECINA",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "8": [
+        {
+            "from": "KARŁOWICE",
+            "to": "TRZEBNICKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "TRZEBNICKA",
+            "to": "DWORZEC NADODRZE",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "DWORZEC NADODRZE",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "SŁOWIAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "SŁOWIAŃSKA",
+            "to": "NOWOWIEJSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NOWOWIEJSKA",
+            "to": "JEDNOŚCI NARODOWEJ",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JEDNOŚCI NARODOWEJ",
+            "to": "NA SZAŃCACH",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NA SZAŃCACH",
+            "to": "PL. BEMA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. BEMA",
+            "to": "HALA TARGOWA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALA TARGOWA",
+            "to": "PL. NOWY TARG",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. NOWY TARG",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "WZGÓRZE PARTYZANTÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WZGÓRZE PARTYZANTÓW",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "DWORZEC AUTOBUSOWY",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC AUTOBUSOWY",
+            "to": "JOANNITÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "JOANNITÓW",
+            "to": "GAJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GAJOWA",
+            "to": "PRUDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PRUDNICKA",
+            "to": "KAMIENNA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIENNA",
+            "to": "BARDZKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BARDZKA",
+            "to": "NYSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NYSKA",
+            "to": "TARNOGAJSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "TARNOGAJSKA",
+            "to": "KLIMASA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KLIMASA",
+            "to": "TARNOGAJ",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "9": [
+        {
+            "from": "PARK POŁUDNIOWY",
+            "to": "PUŁTUSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PUŁTUSKA",
+            "to": "WEIGLA (SZPITAL)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WEIGLA (SZPITAL)",
+            "to": "JAWOROWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JAWOROWA",
+            "to": "WIŚNIOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WIŚNIOWA",
+            "to": "UNIWERSYTET EKONOMICZNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "UNIWERSYTET EKONOMICZNY",
+            "to": "SANOCKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "SANOCKA",
+            "to": "DWORZEC AUTOBUSOWY",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC AUTOBUSOWY",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "WZGÓRZE PARTYZANTÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WZGÓRZE PARTYZANTÓW",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "PL. NOWY TARG",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. NOWY TARG",
+            "to": "HALA TARGOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "HALA TARGOWA",
+            "to": "PL. BEMA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. BEMA",
+            "to": "OGRÓD BOTANICZNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "OGRÓD BOTANICZNY",
+            "to": "GÓRNICKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GÓRNICKIEGO",
+            "to": "PIASTOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PIASTOWSKA",
+            "to": "GRUNWALDZKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "GRUNWALDZKA",
+            "to": "KOCHANOWSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KOCHANOWSKIEGO",
+            "to": "CHOPINA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "CHOPINA",
+            "to": "KARŁOWICZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KARŁOWICZA",
+            "to": "STADION OLIMPIJSKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "STADION OLIMPIJSKI",
+            "to": "8 MAJA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "8 MAJA",
+            "to": "GODEBSKIEGO (AWF WROCŁAW)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GODEBSKIEGO (AWF WROCŁAW)",
+            "to": "SĘPOLNO",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "10": [
+        {
+            "from": "BISKUPIN",
+            "to": "SPÓŁDZIELCZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SPÓŁDZIELCZA",
+            "to": "PIRAMOWICZA (KAMPUS BISKUPIN)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PIRAMOWICZA (KAMPUS BISKUPIN)",
+            "to": "CHEŁMOŃSKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "CHEŁMOŃSKIEGO",
+            "to": "TRAMWAJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "TRAMWAJOWA",
+            "to": "ZOO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ZOO",
+            "to": "HALA STULECIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "HALA STULECIA",
+            "to": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "to": "PL. GRUNWALDZKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. GRUNWALDZKI",
+            "to": "REJA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "REJA",
+            "to": "KATEDRA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KATEDRA",
+            "to": "URZĄD WOJEWÓDZKI (MUZEUM NARODOWE)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "URZĄD WOJEWÓDZKI (MUZEUM NARODOWE)",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "ŚWIDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ŚWIDNICKA",
+            "to": "ZAMKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZAMKOWA",
+            "to": "RYNEK",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "RYNEK",
+            "to": "PL. JANA PAWŁA II",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. JANA PAWŁA II",
+            "to": "MŁODYCH TECHNIKÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MŁODYCH TECHNIKÓW",
+            "to": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "to": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "to": "NIEDŹWIEDZIA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NIEDŹWIEDZIA",
+            "to": "MAŁOPANEWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MAŁOPANEWSKA",
+            "to": "KWISKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KWISKA",
+            "to": "DH ASTRA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DH ASTRA",
+            "to": "PARK ZACHODNI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK ZACHODNI",
+            "to": "BAJANA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BAJANA",
+            "to": "METALOWCÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "METALOWCÓW",
+            "to": "PILCZYCE",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PILCZYCE",
+            "to": "TARCZYŃSKI ARENA (LOTNICZA)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "TARCZYŃSKI ARENA (LOTNICZA)",
+            "to": "GLINIANKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GLINIANKI",
+            "to": "ALEJA ARCHITEKTÓW",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ALEJA ARCHITEKTÓW",
+            "to": "GRABOWA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "GRABOWA",
+            "to": "KOSMONAUTÓW (SZPITAL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KOSMONAUTÓW (SZPITAL)",
+            "to": "KAMIENNOGÓRSKA (OŚRODEK DLA NIEWIDOMYCH)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIENNOGÓRSKA (OŚRODEK DLA NIEWIDOMYCH)",
+            "to": "ZŁOTNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ZŁOTNICKA",
+            "to": "WSCHOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WSCHOWSKA",
+            "to": "JELENIOGÓRSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JELENIOGÓRSKA",
+            "to": "LEŚNICA",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "11": [
+        {
+            "from": "OPORÓW",
+            "to": "GRABISZYŃSKA (CMENTARZ II)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA (CMENTARZ II)",
+            "to": "GRABISZYŃSKA (CMENTARZ)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA (CMENTARZ)",
+            "to": "FIOŁKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "FIOŁKOWA",
+            "to": "FAT",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "FAT",
+            "to": "HUTMEN",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "HUTMEN",
+            "to": "BZOWA (CENTRUM HISTORII ZAJEZDNIA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BZOWA (CENTRUM HISTORII ZAJEZDNIA)",
+            "to": "PL. SREBRNY",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. SREBRNY",
+            "to": "STALOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "STALOWA",
+            "to": "PERECA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PERECA",
+            "to": "GRABISZYŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA",
+            "to": "KOLEJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOLEJOWA",
+            "to": "PL. LEGIONÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. LEGIONÓW",
+            "to": "NARODOWE FORUM MUZYKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NARODOWE FORUM MUZYKI",
+            "to": "ZAMKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZAMKOWA",
+            "to": "ŚWIDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ŚWIDNICKA",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "PL. NOWY TARG",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. NOWY TARG",
+            "to": "HALA TARGOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "HALA TARGOWA",
+            "to": "PL. BEMA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. BEMA",
+            "to": "NA SZAŃCACH",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NA SZAŃCACH",
+            "to": "JEDNOŚCI NARODOWEJ",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JEDNOŚCI NARODOWEJ",
+            "to": "NOWOWIEJSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NOWOWIEJSKA",
+            "to": "DASZYŃSKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DASZYŃSKIEGO",
+            "to": "MOSTY WARSZAWSKIE",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MOSTY WARSZAWSKIE",
+            "to": "KROMERA",
+            "weight": 3,
+            "active": "yes"
+        }
+    ],
+    "12": [
+        {
+            "from": "SĘPOLNO",
+            "to": "GODEBSKIEGO (AWF WROCŁAW)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GODEBSKIEGO (AWF WROCŁAW)",
+            "to": "8 MAJA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "8 MAJA",
+            "to": "STADION OLIMPIJSKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "STADION OLIMPIJSKI",
+            "to": "KARŁOWICZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KARŁOWICZA",
+            "to": "CHOPINA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "CHOPINA",
+            "to": "KOCHANOWSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KOCHANOWSKIEGO",
+            "to": "BUJWIDA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BUJWIDA",
+            "to": "PL. GRUNWALDZKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. GRUNWALDZKI",
+            "to": "MOST GRUNWALDZKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MOST GRUNWALDZKI",
+            "to": "URZĄD WOJEWÓDZKI (IMPART)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "URZĄD WOJEWÓDZKI (IMPART)",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "ŚWIDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ŚWIDNICKA",
+            "to": "ZAMKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZAMKOWA",
+            "to": "RYNEK",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "RYNEK",
+            "to": "PL. JANA PAWŁA II",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. JANA PAWŁA II",
+            "to": "MŁODYCH TECHNIKÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MŁODYCH TECHNIKÓW",
+            "to": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "to": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "to": "NIEDŹWIEDZIA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NIEDŹWIEDZIA",
+            "to": "MAŁOPANEWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MAŁOPANEWSKA",
+            "to": "KWISKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KWISKA",
+            "to": "KOLISTA",
+            "weight": 5,
+            "active": "yes"
+        },
+        {
+            "from": "KOLISTA",
+            "to": "PILCZYCKA (ANIMA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PILCZYCKA (ANIMA)",
+            "to": "MODRA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MODRA",
+            "to": "GÓRNICZA",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "13": [
+        {
+            "from": "STADION OLIMPIJSKI",
+            "to": "KARŁOWICZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KARŁOWICZA",
+            "to": "CHOPINA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "CHOPINA",
+            "to": "KOCHANOWSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KOCHANOWSKIEGO",
+            "to": "BUJWIDA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BUJWIDA",
+            "to": "PL. GRUNWALDZKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. GRUNWALDZKI",
+            "to": "MOST GRUNWALDZKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MOST GRUNWALDZKI",
+            "to": "URZĄD WOJEWÓDZKI (IMPART)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "URZĄD WOJEWÓDZKI (IMPART)",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "ŚWIDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ŚWIDNICKA",
+            "to": "ZAMKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZAMKOWA",
+            "to": "RYNEK",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "RYNEK",
+            "to": "PL. JANA PAWŁA II",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. JANA PAWŁA II",
+            "to": "MŁODYCH TECHNIKÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MŁODYCH TECHNIKÓW",
+            "to": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "to": "DOLMED",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DOLMED",
+            "to": "ŚRUBOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ŚRUBOWA",
+            "to": "WROCŁAWSKI PARK PRZEMYSŁOWY",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAWSKI PARK PRZEMYSŁOWY",
+            "to": "PARK BIZNESU",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PARK BIZNESU",
+            "to": "BABIMOJSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BABIMOJSKA",
+            "to": "STRZEGOMSKA 148",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "STRZEGOMSKA 148",
+            "to": "NOWODWORSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NOWODWORSKA",
+            "to": "STRZEGOMSKA (KRZYŻÓWKA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "STRZEGOMSKA (KRZYŻÓWKA)",
+            "to": "ROGOWSKA (P+R)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ROGOWSKA (P+R)",
+            "to": "ROGOWSKA (OGRODY DZIAŁKOWE)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ROGOWSKA (OGRODY DZIAŁKOWE)",
+            "to": "BUDZISZYŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BUDZISZYŃSKA",
+            "to": "ZEMSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZEMSKA",
+            "to": "PARK TYSIĄCLECIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK TYSIĄCLECIA",
+            "to": "WROCŁAW NOWY DWÓR (P+R)",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "14": [
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "DWORZEC NADODRZE",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "PAULIŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PAULIŃSKA",
+            "to": "DUBOIS",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DUBOIS",
+            "to": "POMORSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "POMORSKA",
+            "to": "KĘPA MIESZCZAŃSKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "KĘPA MIESZCZAŃSKA",
+            "to": "PL. JANA PAWŁA II",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. JANA PAWŁA II",
+            "to": "PL. ORLĄT LWOWSKICH",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. ORLĄT LWOWSKICH",
+            "to": "PL. LEGIONÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. LEGIONÓW",
+            "to": "KOLEJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOLEJOWA",
+            "to": "GRABISZYŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA",
+            "to": "PERECA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PERECA",
+            "to": "STALOWA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "STALOWA",
+            "to": "PL. SREBRNY",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. SREBRNY",
+            "to": "BZOWA (CENTRUM HISTORII ZAJEZDNIA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BZOWA (CENTRUM HISTORII ZAJEZDNIA)",
+            "to": "HUTMEN",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "HUTMEN",
+            "to": "FAT",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "FAT",
+            "to": "FAT",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "FAT",
+            "to": "ALEJA PRACY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ALEJA PRACY",
+            "to": "OJCA BEYZYMA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "OJCA BEYZYMA",
+            "to": "MIELECKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MIELECKA",
+            "to": "GAJOWICKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GAJOWICKA",
+            "to": "HALLERA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALLERA",
+            "to": "JASTRZĘBIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JASTRZĘBIA",
+            "to": "ORLA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ORLA",
+            "to": "KRZYKI",
+            "weight": 3,
+            "active": "yes"
+        }
+    ],
+    "15": [
+        {
+            "from": "POŚWIĘTNE",
+            "to": "WOŁOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WOŁOWSKA",
+            "to": "KĘPIŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KĘPIŃSKA",
+            "to": "KAMIEŃSKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIEŃSKIEGO",
+            "to": "BRONIEWSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BRONIEWSKIEGO",
+            "to": "TRZEBNICKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "TRZEBNICKA",
+            "to": "DWORZEC NADODRZE",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "PAULIŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PAULIŃSKA",
+            "to": "DUBOIS",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DUBOIS",
+            "to": "POMORSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "POMORSKA",
+            "to": "KĘPA MIESZCZAŃSKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "KĘPA MIESZCZAŃSKA",
+            "to": "PL. JANA PAWŁA II",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. JANA PAWŁA II",
+            "to": "PL. ORLĄT LWOWSKICH",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. ORLĄT LWOWSKICH",
+            "to": "PL. LEGIONÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. LEGIONÓW",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "DWORZEC AUTOBUSOWY",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC AUTOBUSOWY",
+            "to": "SANOCKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "SANOCKA",
+            "to": "UNIWERSYTET EKONOMICZNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "UNIWERSYTET EKONOMICZNY",
+            "to": "WIŚNIOWA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WIŚNIOWA",
+            "to": "JAWOROWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JAWOROWA",
+            "to": "WEIGLA (SZPITAL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WEIGLA (SZPITAL)",
+            "to": "PUŁTUSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PUŁTUSKA",
+            "to": "PARK POŁUDNIOWY",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "16": [
+        {
+            "from": "KARŁOWICE",
+            "to": "TRZEBNICKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "TRZEBNICKA",
+            "to": "DWORZEC NADODRZE",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "DWORZEC NADODRZE",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC NADODRZE",
+            "to": "SŁOWIAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "SŁOWIAŃSKA",
+            "to": "NOWOWIEJSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NOWOWIEJSKA",
+            "to": "WYSZYŃSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WYSZYŃSKIEGO",
+            "to": "PRUSA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PRUSA",
+            "to": "PIASTOWSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PIASTOWSKA",
+            "to": "PL. GRUNWALDZKI",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "PL. GRUNWALDZKI",
+            "to": "MOST GRUNWALDZKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MOST GRUNWALDZKI",
+            "to": "URZĄD WOJEWÓDZKI (IMPART)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "URZĄD WOJEWÓDZKI (IMPART)",
+            "to": "PL. WRÓBLEWSKIEGO",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. WRÓBLEWSKIEGO",
+            "to": "KOMUNY PARYSKIEJ",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOMUNY PARYSKIEJ",
+            "to": "KOŚCIUSZKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOŚCIUSZKI",
+            "to": "HUBSKA (DAWIDA)",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "HUBSKA (DAWIDA)",
+            "to": "PRUDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PRUDNICKA",
+            "to": "KAMIENNA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIENNA",
+            "to": "BARDZKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BARDZKA",
+            "to": "NYSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NYSKA",
+            "to": "TARNOGAJSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "TARNOGAJSKA",
+            "to": "KLIMASA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KLIMASA",
+            "to": "TARNOGAJ",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "17": [
+        {
+            "from": "SĘPOLNO",
+            "to": "GODEBSKIEGO (AWF WROCŁAW)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GODEBSKIEGO (AWF WROCŁAW)",
+            "to": "8 MAJA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "8 MAJA",
+            "to": "STADION OLIMPIJSKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "STADION OLIMPIJSKI",
+            "to": "KARŁOWICZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KARŁOWICZA",
+            "to": "CHOPINA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "CHOPINA",
+            "to": "KOCHANOWSKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KOCHANOWSKIEGO",
+            "to": "GRUNWALDZKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "GRUNWALDZKA",
+            "to": "PIASTOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PIASTOWSKA",
+            "to": "GÓRNICKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "GÓRNICKIEGO",
+            "to": "OGRÓD BOTANICZNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "OGRÓD BOTANICZNY",
+            "to": "PL. BEMA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. BEMA",
+            "to": "HALA TARGOWA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALA TARGOWA",
+            "to": "PL. NOWY TARG",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. NOWY TARG",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "PARK STAROMIEJSKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PARK STAROMIEJSKI",
+            "to": "OPERA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "OPERA",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "ZAOLZIAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ZAOLZIAŃSKA",
+            "to": "WIELKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WIELKA",
+            "to": "RONDO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "RONDO",
+            "to": "SZTABOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SZTABOWA",
+            "to": "HALLERA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALLERA",
+            "to": "JASTRZĘBIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JASTRZĘBIA",
+            "to": "ORLA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ORLA",
+            "to": "KRZYKI",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "KRZYKI",
+            "to": "RADIO I TELEWIZJA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "RADIO I TELEWIZJA",
+            "to": "PRZYJAŹNI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PRZYJAŹNI",
+            "to": "BRATERSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BRATERSKA",
+            "to": "SĄSIEDZKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SĄSIEDZKA",
+            "to": "KLECINA",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "18": [
+        {
+            "from": "TARCZYŃSKI ARENA (KRÓLEWIECKA)",
+            "to": "DWORSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DWORSKA",
+            "to": "GÓRNICZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GÓRNICZA",
+            "to": "MODRA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MODRA",
+            "to": "PILCZYCKA (ANIMA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PILCZYCKA (ANIMA)",
+            "to": "KOLISTA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOLISTA",
+            "to": "WEJHEROWSKA (HALA ORBITA)",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "WEJHEROWSKA (HALA ORBITA)",
+            "to": "PORT POPOWICE",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PORT POPOWICE",
+            "to": "BIAŁOWIESKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BIAŁOWIESKA",
+            "to": "PARK POPOWICKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK POPOWICKI",
+            "to": "WROCŁAW POPOWICE (17.POŁUDNIK)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW POPOWICE (17.POŁUDNIK)",
+            "to": "DŁUGA (OGRODY DZIAŁKOWE)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DŁUGA (OGRODY DZIAŁKOWE)",
+            "to": "WROCŁAW SZCZEPIN",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW SZCZEPIN",
+            "to": "MICHALCZYKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MICHALCZYKA",
+            "to": "KĘPA MIESZCZAŃSKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "KĘPA MIESZCZAŃSKA",
+            "to": "POMORSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "POMORSKA",
+            "to": "POMORSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "POMORSKA",
+            "to": "MOSTY POMORSKIE",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MOSTY POMORSKIE",
+            "to": "RYNEK",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "RYNEK",
+            "to": "ZAMKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZAMKOWA",
+            "to": "ŚWIDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ŚWIDNICKA",
+            "to": "PARK STAROMIEJSKI",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PARK STAROMIEJSKI",
+            "to": "WZGÓRZE PARTYZANTÓW",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WZGÓRZE PARTYZANTÓW",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "DWORZEC AUTOBUSOWY",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC AUTOBUSOWY",
+            "to": "JOANNITÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "JOANNITÓW",
+            "to": "GAJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GAJOWA",
+            "to": "PRUDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PRUDNICKA",
+            "to": "KAMIENNA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIENNA",
+            "to": "BARDZKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BARDZKA",
+            "to": "KRYNICKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KRYNICKA",
+            "to": "MORWOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MORWOWA",
+            "to": "ŚWIERADOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ŚWIERADOWSKA",
+            "to": "GAJ",
+            "weight": 2,
+            "active": "yes"
+        }
+    ],
+    "19": [
+        {
+            "from": "GÓRNICZA",
+            "to": "MODRA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MODRA",
+            "to": "PILCZYCKA (ANIMA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PILCZYCKA (ANIMA)",
+            "to": "KOLISTA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOLISTA",
+            "to": "WEJHEROWSKA (HALA ORBITA)",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "WEJHEROWSKA (HALA ORBITA)",
+            "to": "PORT POPOWICE",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PORT POPOWICE",
+            "to": "BIAŁOWIESKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BIAŁOWIESKA",
+            "to": "PARK POPOWICKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK POPOWICKI",
+            "to": "WROCŁAW POPOWICE (17.POŁUDNIK)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW POPOWICE (17.POŁUDNIK)",
+            "to": "DŁUGA (OGRODY DZIAŁKOWE)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DŁUGA (OGRODY DZIAŁKOWE)",
+            "to": "WROCŁAW SZCZEPIN",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW SZCZEPIN",
+            "to": "MICHALCZYKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MICHALCZYKA",
+            "to": "KĘPA MIESZCZAŃSKA",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "KĘPA MIESZCZAŃSKA",
+            "to": "POMORSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "POMORSKA",
+            "to": "DUBOIS",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DUBOIS",
+            "to": "PL. BEMA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. BEMA",
+            "to": "OGRÓD BOTANICZNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "OGRÓD BOTANICZNY",
+            "to": "GÓRNICKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GÓRNICKIEGO",
+            "to": "PIASTOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PIASTOWSKA",
+            "to": "PL. GRUNWALDZKI",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "PL. GRUNWALDZKI",
+            "to": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KLINIKI - POLITECHNIKA WROCŁAWSKA",
+            "to": "HALA STULECIA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALA STULECIA",
+            "to": "ZOO",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "20": [
+        {
+            "from": "OPORÓW",
+            "to": "GRABISZYŃSKA (CMENTARZ II)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA (CMENTARZ II)",
+            "to": "GRABISZYŃSKA (CMENTARZ)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GRABISZYŃSKA (CMENTARZ)",
+            "to": "FIOŁKOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "FIOŁKOWA",
+            "to": "FAT",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "FAT",
+            "to": "ALEJA PRACY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ALEJA PRACY",
+            "to": "OJCA BEYZYMA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "OJCA BEYZYMA",
+            "to": "MIELECKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MIELECKA",
+            "to": "GAJOWICKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GAJOWICKA",
+            "to": "HALLERA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALLERA",
+            "to": "SZTABOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "SZTABOWA",
+            "to": "RONDO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "RONDO",
+            "to": "WIELKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WIELKA",
+            "to": "ZAOLZIAŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZAOLZIAŃSKA",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "RENOMA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "RENOMA",
+            "to": "PL. ORLĄT LWOWSKICH",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "PL. ORLĄT LWOWSKICH",
+            "to": "DWORZEC ŚWIEBODZKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC ŚWIEBODZKI",
+            "to": "SMOLECKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "SMOLECKA",
+            "to": "ŚRUBOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ŚRUBOWA",
+            "to": "DOLMED",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DOLMED",
+            "to": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "to": "NIEDŹWIEDZIA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NIEDŹWIEDZIA",
+            "to": "MAŁOPANEWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MAŁOPANEWSKA",
+            "to": "KWISKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KWISKA",
+            "to": "DH ASTRA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DH ASTRA",
+            "to": "PARK ZACHODNI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK ZACHODNI",
+            "to": "BAJANA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BAJANA",
+            "to": "METALOWCÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "METALOWCÓW",
+            "to": "PILCZYCE",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PILCZYCE",
+            "to": "TARCZYŃSKI ARENA (LOTNICZA)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "TARCZYŃSKI ARENA (LOTNICZA)",
+            "to": "GLINIANKI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GLINIANKI",
+            "to": "ALEJA ARCHITEKTÓW",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ALEJA ARCHITEKTÓW",
+            "to": "GRABOWA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "GRABOWA",
+            "to": "KOSMONAUTÓW (SZPITAL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KOSMONAUTÓW (SZPITAL)",
+            "to": "KAMIENNOGÓRSKA (OŚRODEK DLA NIEWIDOMYCH)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIENNOGÓRSKA (OŚRODEK DLA NIEWIDOMYCH)",
+            "to": "ZŁOTNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ZŁOTNICKA",
+            "to": "WSCHOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WSCHOWSKA",
+            "to": "JELENIOGÓRSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "JELENIOGÓRSKA",
+            "to": "LEŚNICA",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "21": [
+        {
+            "from": "TARCZYŃSKI ARENA (KRÓLEWIECKA)",
+            "to": "DWORSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DWORSKA",
+            "to": "GÓRNICZA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GÓRNICZA",
+            "to": "MODRA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MODRA",
+            "to": "PILCZYCKA (ANIMA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PILCZYCKA (ANIMA)",
+            "to": "KOLISTA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KOLISTA",
+            "to": "KWISKA",
+            "weight": 5,
+            "active": "yes"
+        },
+        {
+            "from": "KWISKA",
+            "to": "MAŁOPANEWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MAŁOPANEWSKA",
+            "to": "NIEDŹWIEDZIA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NIEDŹWIEDZIA",
+            "to": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "to": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "to": "MŁODYCH TECHNIKÓW",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MŁODYCH TECHNIKÓW",
+            "to": "PL. JANA PAWŁA II",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. JANA PAWŁA II",
+            "to": "PL. ORLĄT LWOWSKICH",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. ORLĄT LWOWSKICH",
+            "to": "PL. LEGIONÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. LEGIONÓW",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "DWORZEC AUTOBUSOWY",
+            "weight": 4,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC AUTOBUSOWY",
+            "to": "JOANNITÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "JOANNITÓW",
+            "to": "GAJOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GAJOWA",
+            "to": "PRUDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PRUDNICKA",
+            "to": "KAMIENNA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIENNA",
+            "to": "BARDZKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BARDZKA",
+            "to": "KRYNICKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KRYNICKA",
+            "to": "MORWOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MORWOWA",
+            "to": "ŚWIERADOWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ŚWIERADOWSKA",
+            "to": "GAJ",
+            "weight": 2,
+            "active": "yes"
+        }
+    ],
+    "22": [
+        {
+            "from": "PILCZYCE",
+            "to": "METALOWCÓW",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "METALOWCÓW",
+            "to": "BAJANA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BAJANA",
+            "to": "PARK ZACHODNI",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK ZACHODNI",
+            "to": "DH ASTRA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DH ASTRA",
+            "to": "KWISKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KWISKA",
+            "to": "MAŁOPANEWSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MAŁOPANEWSKA",
+            "to": "NIEDŹWIEDZIA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NIEDŹWIEDZIA",
+            "to": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAW MIKOŁAJÓW (ZACHODNIA)",
+            "to": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. STRZEGOMSKI (MUZEUM WSPÓŁCZESNE)",
+            "to": "MŁODYCH TECHNIKÓW",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "MŁODYCH TECHNIKÓW",
+            "to": "PL. JANA PAWŁA II",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. JANA PAWŁA II",
+            "to": "PL. ORLĄT LWOWSKICH",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "PL. ORLĄT LWOWSKICH",
+            "to": "PL. LEGIONÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. LEGIONÓW",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "PUŁASKIEGO",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PUŁASKIEGO",
+            "to": "HUBSKA (DAWIDA)",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "HUBSKA (DAWIDA)",
+            "to": "PRUDNICKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PRUDNICKA",
+            "to": "KAMIENNA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KAMIENNA",
+            "to": "BARDZKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "BARDZKA",
+            "to": "NYSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NYSKA",
+            "to": "TARNOGAJSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "TARNOGAJSKA",
+            "to": "KLIMASA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KLIMASA",
+            "to": "TARNOGAJ",
+            "weight": 1,
+            "active": "yes"
+        }
+    ],
+    "23": [
+        {
+            "from": "KOWALE",
+            "to": "BOCIANIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BOCIANIA",
+            "to": "GĘSIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "GĘSIA",
+            "to": "KWIDZYŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KWIDZYŃSKA",
+            "to": "KĘTRZYŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "KĘTRZYŃSKA",
+            "to": "KROMERA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "KROMERA",
+            "to": "MOSTY WARSZAWSKIE",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "MOSTY WARSZAWSKIE",
+            "to": "DASZYŃSKIEGO",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "DASZYŃSKIEGO",
+            "to": "NOWOWIEJSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NOWOWIEJSKA",
+            "to": "JEDNOŚCI NARODOWEJ",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "JEDNOŚCI NARODOWEJ",
+            "to": "NA SZAŃCACH",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "NA SZAŃCACH",
+            "to": "PL. BEMA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. BEMA",
+            "to": "HALA TARGOWA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "HALA TARGOWA",
+            "to": "PL. NOWY TARG",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PL. NOWY TARG",
+            "to": "GALERIA DOMINIKAŃSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "GALERIA DOMINIKAŃSKA",
+            "to": "WZGÓRZE PARTYZANTÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "WZGÓRZE PARTYZANTÓW",
+            "to": "DWORZEC GŁÓWNY",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC GŁÓWNY",
+            "to": "ARKADY (CAPITOL)",
+            "weight": 3,
+            "active": "yes"
+        },
+        {
+            "from": "ARKADY (CAPITOL)",
+            "to": "PL. LEGIONÓW",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. LEGIONÓW",
+            "to": "PL. ORLĄT LWOWSKICH",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PL. ORLĄT LWOWSKICH",
+            "to": "DWORZEC ŚWIEBODZKI",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "DWORZEC ŚWIEBODZKI",
+            "to": "SMOLECKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "SMOLECKA",
+            "to": "ŚRUBOWA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ŚRUBOWA",
+            "to": "WROCŁAWSKI PARK PRZEMYSŁOWY",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "WROCŁAWSKI PARK PRZEMYSŁOWY",
+            "to": "PARK BIZNESU",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "PARK BIZNESU",
+            "to": "BABIMOJSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BABIMOJSKA",
+            "to": "STRZEGOMSKA 148",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "STRZEGOMSKA 148",
+            "to": "NOWODWORSKA",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "NOWODWORSKA",
+            "to": "STRZEGOMSKA (KRZYŻÓWKA)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "STRZEGOMSKA (KRZYŻÓWKA)",
+            "to": "ROGOWSKA (P+R)",
+            "weight": 2,
+            "active": "yes"
+        },
+        {
+            "from": "ROGOWSKA (P+R)",
+            "to": "ROGOWSKA (OGRODY DZIAŁKOWE)",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ROGOWSKA (OGRODY DZIAŁKOWE)",
+            "to": "BUDZISZYŃSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "BUDZISZYŃSKA",
+            "to": "ZEMSKA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "ZEMSKA",
+            "to": "PARK TYSIĄCLECIA",
+            "weight": 1,
+            "active": "yes"
+        },
+        {
+            "from": "PARK TYSIĄCLECIA",
+            "to": "WROCŁAW NOWY DWÓR (P+R)",
+            "weight": 1,
+            "active": "yes"
+        }
+    ]
+}
