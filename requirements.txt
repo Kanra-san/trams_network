@@ -1,0 +1,6 @@
+flask
+flask-cors
+networkx
+matplotlib
+seaborn
+plotly

@@ -1,0 +1,1 @@
+To run the project simply run app.py and open the interface in your browser at localhost:5000.

@@ -10,7 +10,7 @@ def initialize_database(db_file: str = 'tram_data2.db') -> None:
     conn = sqlite3.connect(db_file)
     cursor = conn.cursor()
 
-    # Drop existing tables if they exist (for fresh start)
+    # drop existing tables if they exist (for fresh start)
     cursor.executescript('''
     DROP TABLE IF EXISTS traffic_patterns;
     DROP TABLE IF EXISTS stop_line_relations;
@@ -19,7 +19,7 @@ def initialize_database(db_file: str = 'tram_data2.db') -> None:
     DROP TABLE IF EXISTS tram_lines;
     ''')
 
-    # Create tables with enhanced schema
+    # create tables
     cursor.executescript('''
     CREATE TABLE stops (
         stop_id TEXT PRIMARY KEY,
@@ -70,7 +70,7 @@ def initialize_database(db_file: str = 'tram_data2.db') -> None:
 
 
 def get_ordered_stops_from_variant(variant: ET.Element) -> List[Tuple[str, str, int]]:
-    """Improved version from wtf.py to extract stops with their times"""
+    """Extract stops with their times"""
     czasy = variant.find('.//czasy')
     stops = []
     if czasy is not None:
@@ -83,41 +83,39 @@ def get_ordered_stops_from_variant(variant: ET.Element) -> List[Tuple[str, str, 
     return stops
 
 
-def parse_tram_xml(xml_file: str) -> Tuple[Set[Tuple], Set[Tuple], Dict[str, List[List[str]]]]:
+def parse_tram_xml(xml_file: str) -> Tuple[Set[Tuple], Set[Tuple], Dict[str, List[Tuple[str, List[str]]]]]:
     try:
         tree = ET.parse(xml_file)
         root = tree.getroot()
         connections = set()
         stops_info = set()
-        line_routes = {}
+        line_variants = {}
 
         linia = root.find('.//linia')
         line_number = linia.get('nazwa', '0')
 
-        # Process each variant using the improved method from wtf.py
-        variants = [get_ordered_stops_from_variant(variant) for variant in root.findall('.//wariant')]
+        # Process each variant
+        variants = root.findall('.//wariant')
+        variant_data = []
 
         for variant in variants:
-            variant_route = []
+            variant_name = variant.get('nazwa', 'Variant')
+            stops = get_ordered_stops_from_variant(variant)
+            variant_data.append((variant_name, [stop[0] for stop in stops]))
 
-            # First collect all stops in order
-            for stop_id, stop_name, _ in variant:
+            # Collect stops and connections
+            for stop_id, stop_name, _ in stops:
                 stops_info.add((stop_id, stop_name))
-                variant_route.append(stop_id)
 
             # Create connections with proper weights based on time differences
-            for i in range(len(variant) - 1):
-                from_stop, _, from_time = variant[i]
-                to_stop, _, to_time = variant[i + 1]
+            for i in range(len(stops) - 1):
+                from_stop, _, from_time = stops[i]
+                to_stop, _, to_time = stops[i + 1]
                 weight = max(1, to_time - from_time)  # min weight = 1
                 connections.add((line_number, from_stop, to_stop, weight))
 
-            # Store the route variant
-            if line_number not in line_routes:
-                line_routes[line_number] = []
-            line_routes[line_number].append(variant_route)
-
-        return connections, stops_info, line_routes
+        line_variants[line_number] = variant_data
+        return connections, stops_info, line_variants
     except ET.ParseError as e:
         print(f"Error parsing {xml_file}: {e}")
         return set(), set(), {}
@@ -148,7 +146,7 @@ def load_coordinates_from_csv(csv_file: str) -> Dict[str, Tuple[float, float]]:
 def populate_database(conn: sqlite3.Connection,
                       all_connections: Set[Tuple],
                       all_stops: Set[Tuple],
-                      line_routes: Dict[str, List[List[str]]],
+                      line_variants: Dict[str, List[Tuple[str, List[str]]]],
                       coordinates: Optional[Dict[str, Tuple[float, float]]] = None) -> None:
     """Populate database with extracted data"""
     cursor = conn.cursor()
@@ -171,15 +169,22 @@ def populate_database(conn: sqlite3.Connection,
         VALUES (?, ?, 'yes')
         ''', all_stops)
 
-    # Insert tram lines with their route descriptions
-    for line_number, routes in line_routes.items():
-        route_desc = " | ".join(["->".join(route) for route in routes])
+    # Insert tram lines with variant information in route_description
+    for line_number, variants in line_variants.items():
+        # Format variants for display in route_description
+        variant_descriptions = []
+        for variant_name, stop_sequence in variants:
+            variant_desc = f"{variant_name}: {' → '.join(stop_sequence)}"
+            variant_descriptions.append(variant_desc)
+
+        route_description = " | ".join(variant_descriptions)
+
         cursor.execute('''
         INSERT OR IGNORE INTO tram_lines (line_number, route_description)
         VALUES (?, ?)
-        ''', (line_number, route_desc))
+        ''', (line_number, route_description))
 
-    # Insert connections (no active_status needed)
+    # Insert connections
     cursor.executemany('''
     INSERT OR IGNORE INTO connections 
     (line_number, from_stop, to_stop, weight)
@@ -188,9 +193,9 @@ def populate_database(conn: sqlite3.Connection,
 
     # Create stop-line relationships
     stop_line_relations = set()
-    for line_number, routes in line_routes.items():
-        for route in routes:
-            for stop_id in route:
+    for line_number, variants in line_variants.items():
+        for _, stop_sequence in variants:
+            for stop_id in stop_sequence:
                 stop_line_relations.add((stop_id, line_number))
 
     cursor.executemany('''
@@ -206,7 +211,7 @@ def process_tram_lines(root_folder: str, coordinates_file: str, db_file: str = '
     """Process all XML files in directory and populate database"""
     all_connections = set()
     all_stops = set()
-    all_line_routes = {}
+    all_line_variants = {}
 
     # Initialize fresh database
     initialize_database(db_file)
@@ -223,19 +228,19 @@ def process_tram_lines(root_folder: str, coordinates_file: str, db_file: str = '
                 for filename in os.listdir(line_path):
                     if filename.endswith('.xml'):
                         file_path = os.path.join(line_path, filename)
-                        connections, stops_info, line_routes = parse_tram_xml(file_path)
+                        connections, stops_info, line_variants = parse_tram_xml(file_path)
                         all_connections.update(connections)
                         all_stops.update(stops_info)
 
-                        # Merge line routes
-                        for line_num, routes in line_routes.items():
-                            if line_num in all_line_routes:
-                                all_line_routes[line_num].extend(routes)
+                        # Merge line variants
+                        for line_num, variants in line_variants.items():
+                            if line_num in all_line_variants:
+                                all_line_variants[line_num].extend(variants)
                             else:
-                                all_line_routes[line_num] = routes
+                                all_line_variants[line_num] = variants
 
         # Populate database
-        populate_database(conn, all_connections, all_stops, all_line_routes, coordinates)
+        populate_database(conn, all_connections, all_stops, all_line_variants, coordinates)
 
         # Print summary
         cursor = conn.cursor()
@@ -251,6 +256,12 @@ def process_tram_lines(root_folder: str, coordinates_file: str, db_file: str = '
         cursor.execute("SELECT DISTINCT line_number FROM connections")
         lines = [row[0] for row in cursor.fetchall()]
         print(f"- Lines found: {', '.join(sorted(lines))}")
+
+        # Print variant count per line
+        cursor.execute("SELECT line_number, route_description FROM tram_lines")
+        for line_number, route_description in cursor.fetchall():
+            variant_count = route_description.count('|') + 1
+            print(f"- Line {line_number} has {variant_count} variants")
 
     finally:
         conn.close()
