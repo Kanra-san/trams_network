@@ -151,6 +151,68 @@ def process_all_lines(xml_folder='./xmls/'):
     return pd.DataFrame()
 
 
+def get_variant_names_for_line(line_no, db_path='tram_data2.db'):
+    """
+    Fetch variant names for a given line number from the tram_lines table.
+    Returns a list of dictionaries with variant_id, variant_name, start_stop, end_stop.
+    """
+    try:
+        conn = sqlite3.connect(db_path)
+        query = """
+            SELECT variant_id, variant_name, start_stop, end_stop
+            FROM tram_lines
+            WHERE line_number = ?
+            ORDER BY variant_id
+        """
+        df = pd.read_sql_query(query, conn, params=(line_no,))
+        conn.close()
+
+        if df.empty:
+            return []
+
+        return df.to_dict(orient='records')
+
+    except Exception as e:
+        print(f"Error fetching variants for line {line_no}: {e}")
+        return []
+
+
+def get_variant_ids_for_line(line_no, db_path='tram_data2.db'):
+    """
+    Fetch variant IDs for a given line number from the tram_lines table.
+    Returns a list of variant IDs.
+    """
+    try:
+        conn = sqlite3.connect(db_path)
+        query = """
+            SELECT variant_id
+            FROM tram_lines
+            WHERE line_number = ?
+            ORDER BY variant_id
+        """
+        df = pd.read_sql_query(query, conn, params=(line_no,))
+        conn.close()
+
+        if df.empty:
+            return []
+
+        return df['variant_id'].tolist()
+
+    except Exception as e:
+        print(f"Error fetching variant IDs for line {line_no}: {e}")
+        return []
+
+
+# Make get_variant_names_for_line importable from this module
+__all__ = [
+    'get_variants_for_line',
+    'update_database',
+    'process_all_lines',
+    'get_variant_names_for_line',
+    'get_variant_ids_for_line'
+]
+
+
 if __name__ == "__main__":
     # Process all lines
     combined_df = process_all_lines()

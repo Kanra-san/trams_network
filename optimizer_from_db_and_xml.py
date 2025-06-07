@@ -62,6 +62,8 @@ def parse_xml_schedule_for_line(xml_folder, line_no):
                                 "Description": przyp
                             })
     df = pd.DataFrame(schedule_data)
+    logging.info(f"Parsing XML file: {xml_path}")
+    logging.info(f"Extracted schedule data sample: {schedule_data[:5]}")
     return df
 
 
@@ -84,7 +86,6 @@ def get_traffic_data_from_db():
 
             # Ensure proper data types
             if not df.empty:
-                df['Line no.'] = df['Stop ID']  # Map Stop ID to Line no. for compatibility
                 df['Hour'] = df['Hour'].astype(str).str.split(':').str[0]
                 df['Hour'] = df['Hour'].apply(lambda x: f"{int(x):02d}")
 
@@ -135,7 +136,7 @@ def allocate_trips(traffic_df, schedule_df, max_trips_per_hour=7):
     traffic_df = traffic_df.copy()
     schedule_df = schedule_df.copy()
     
-    for col in ['Line no.', 'Day', 'Hour']:
+    for col in ['Stop ID', 'Day', 'Hour']:
         traffic_df[col] = traffic_df[col].astype(str)
         schedule_df[col] = schedule_df[col].astype(str)
     
@@ -143,20 +144,40 @@ def allocate_trips(traffic_df, schedule_df, max_trips_per_hour=7):
     logging.debug(f"Traffic data sample:\n{traffic_df.head()}")
     logging.debug(f"Schedule data sample:\n{schedule_df.head()}")
     
-    # Verify column values
-    logging.debug(f"Unique Line no. in traffic data: {traffic_df['Line no.'].unique()}")
-    logging.debug(f"Unique Line no. in schedule data: {schedule_df['Line no.'].unique()}")
-    logging.debug(f"Unique Days in traffic data: {traffic_df['Day'].unique()}")
-    logging.debug(f"Unique Days in schedule data: {schedule_df['Day'].unique()}")
-    logging.debug(f"Unique Hours in traffic data: {traffic_df['Hour'].unique()}")
-    logging.debug(f"Unique Hours in schedule data: {schedule_df['Hour'].unique()}")
+    # Add detailed logs to compare Stop ID, Day, and Hour values
+    logging.debug(f"Traffic data Stop IDs: {traffic_df['Stop ID'].unique()}")
+    logging.debug(f"Schedule data Stop IDs: {schedule_df['Stop ID'].unique()}")
+    logging.debug(f"Traffic data Days: {traffic_df['Day'].unique()}")
+    logging.debug(f"Schedule data Days: {schedule_df['Day'].unique()}")
+    logging.debug(f"Traffic data Hours: {traffic_df['Hour'].unique()}")
+    logging.debug(f"Schedule data Hours: {schedule_df['Hour'].unique()}")
+    logging.debug(f"Unique Hours in Schedule Data: {schedule_df['Hour'].unique()}")
+    logging.debug(f"Unique Hours in Traffic Data: {traffic_df['Hour'].unique()}")
+
+    # Ensure Day values in traffic data are mapped correctly
+    traffic_day_type_map = {
+        'Monday': 'w dni robocze',
+        'Tuesday': 'w dni robocze',
+        'Wednesday': 'w dni robocze',
+        'Thursday': 'w dni robocze',
+        'Friday': 'w dni robocze',
+        'Saturday': 'Sobota',
+        'Sunday': 'Niedziela'
+    }
+    traffic_df['Day'] = traffic_df['Day'].map(traffic_day_type_map)
+    logging.debug(f"Mapped traffic data Days to match schedule format:\n{traffic_df.head()}")
+
+    # Ensure Hour values are consistent
+    traffic_df['Hour'] = traffic_df['Hour'].astype(str).str.zfill(2)
+    schedule_df['Hour'] = schedule_df['Hour'].astype(str).str.zfill(2)
+    logging.debug(f"Normalized Hour values in traffic and schedule data")
     
     try:
-        # Merge data
+        # Merge data on Stop ID, Day, Hour
         merged = pd.merge(
             traffic_df,
             schedule_df,
-            on=['Line no.', 'Day', 'Hour'],
+            on=['Stop ID', 'Day', 'Hour'],
             how='inner'
         )
         
@@ -171,7 +192,9 @@ def allocate_trips(traffic_df, schedule_df, max_trips_per_hour=7):
         merged['allocated_trips'] = merged[['allocated_trips', 'No. of courses']].min(axis=1)
         
         logging.info(f"Successfully allocated trips for {len(merged)} time slots")
-        return merged[['Line no.', 'Day', 'Hour', 'No. of courses', 'allocated_trips']]
+        # Only include 'Line no.' if it exists in merged, otherwise drop it from result
+        result_cols = [col for col in ['Line no.', 'Variant', 'Variant ID', 'Stop ID', 'Day', 'Hour', 'No. of courses', 'allocated_trips'] if col in merged.columns]
+        return merged[result_cols]
         
     except Exception as e:
         logging.error(f"Error in allocation: {e}")
@@ -214,128 +237,232 @@ def allocate_trips_directly(schedule_df, traffic_df, max_trips_per_hour=7):
     logging.info(f"Successfully adjusted trips for {len(schedule_df)} schedule entries")
     return schedule_df
 
-def debug_print_traffic_patterns_table(db_file='tram_data2.db'):
-    print("\n--- DEBUG: First rows of traffic_patterns table ---")
-    try:
-        conn = sqlite3.connect(db_file)
-        cur = conn.cursor()
-        cur.execute("SELECT * FROM traffic_patterns LIMIT 5;")
-        rows = cur.fetchall()
-        for row in rows:
-            print(row)
-        cur.execute("SELECT DISTINCT stop_id FROM traffic_patterns;")
-        print("Unique stop_ids:", [r[0] for r in cur.fetchall()])
-        cur.execute("SELECT DISTINCT day_of_week FROM traffic_patterns;")
-        print("Unique day_of_week:", [r[0] for r in cur.fetchall()])
-        cur.execute("SELECT DISTINCT hour FROM traffic_patterns;")
-        print("Unique hour:", [r[0] for r in cur.fetchall()])
-        conn.close()
-    except Exception as e:
-        print(f"Error reading traffic_patterns table: {e}")
+def count_passes_per_hour(xml_folder, line_no, variant=None):
+    """Count how many times during each hour the line with the selected variant passes."""
+    schedule_df = parse_xml_schedule_for_line(xml_folder, line_no)
+    if schedule_df.empty:
+        logging.warning(f"No schedule data found for line {line_no}")
+        return pd.DataFrame()
 
-def debug_print_xml_structure(xml_folder):
-    print("\n--- DEBUG: XML Structure in folder ---")
-    for root, dirs, files in os.walk(xml_folder):
-        for file in files:
-            if file.endswith('.xml'):
-                path = os.path.join(root, file)
-                try:
-                    tree = ET.parse(path)
-                    root_elem = tree.getroot()
-                    print(f"\nFile: {path}")
-                    print(f"Root tag: {root_elem.tag}")
-                    print("First-level child tags:", [child.tag for child in root_elem])
-                    for linia in root_elem.findall('.//linia'):
-                        print(f"<linia> attributes: {linia.attrib}")
-                except Exception as e:
-                    print(f"Error parsing {path}: {e}")
+    if variant:
+        schedule_df = schedule_df[schedule_df['Variant'] == variant]
+        if schedule_df.empty:
+            logging.warning(f"No schedule data found for line {line_no} with variant {variant}")
+            return pd.DataFrame()
+
+    # Count passes per hour
+    passes_per_hour = (
+        schedule_df.groupby(['Day', 'Hour'], as_index=False)
+        .size()
+        .rename(columns={'size': 'passes'})
+    )
+
+    logging.info(f"Counted passes per hour for line {line_no}, variant {variant}")
+    return passes_per_hour
+
+def optimize_schedule_based_on_passes(xml_folder, line_no, variant=None, max_trips_per_hour=7):
+    """Optimize a new schedule based on passes through stops and traffic data."""
+    # Count passes per hour
+    passes_df = count_passes_per_hour(xml_folder, line_no, variant)
+    if passes_df.empty:
+        logging.warning(f"No passes data found for line {line_no}, variant {variant}")
+        return pd.DataFrame()
+
+    # Get traffic data
+    traffic_df = get_traffic_data_from_db()
+    if traffic_df.empty:
+        logging.warning("No traffic data available")
+        return pd.DataFrame()
+
+    # Merge passes data with traffic data
+    merged_df = pd.merge(
+        passes_df,
+        traffic_df,
+        on=['Day', 'Hour'],
+        how='inner'
+    )
+
+    if merged_df.empty:
+        logging.warning("No matching records between passes and traffic data")
+        return pd.DataFrame()
+
+    # Normalize traffic and propose trips
+    merged_df['normalized_traffic'] = (merged_df['traffic_percent'] - merged_df['traffic_percent'].min()) / \
+                                      (merged_df['traffic_percent'].max() - merged_df['traffic_percent'].min())
+    merged_df['proposed_trips'] = (merged_df['normalized_traffic'] * max_trips_per_hour).round().astype(int)
+    merged_df['proposed_trips'] = merged_df[['proposed_trips', 'passes']].min(axis=1)
+
+    logging.info(f"Optimized schedule for line {line_no}, variant {variant}")
+    return merged_df[['Day', 'Hour', 'proposed_trips']]
+
+def optimize_without_merging(xml_folder, line_no, day_type, variant=None, max_trips_per_hour=7):
+    """Optimize tram schedule without merging traffic and schedule data."""
+    # Parse schedule data for the chosen line
+    schedule_df = parse_xml_schedule_for_line(xml_folder, line_no)
+    if schedule_df.empty:
+        logging.warning(f"No schedule data found for line {line_no}")
+        return pd.DataFrame()
+
+    # Filter by variant if provided
+    if variant:
+        schedule_df = schedule_df[schedule_df['Variant'] == variant]
+        if schedule_df.empty:
+            logging.warning(f"No schedule data found for line {line_no} with variant {variant}")
+            return pd.DataFrame()
+
+    # Filter by day type
+    day_type_map = {
+        'workday': 'w dni robocze',
+        'saturday': 'Sobota',
+        'sunday': 'Niedziela'
+    }
+    day_type_mapped = day_type_map.get(day_type.lower(), day_type)
+    schedule_df = schedule_df[schedule_df['Day'] == day_type_mapped]
+    if schedule_df.empty:
+        logging.warning(f"No schedule data found for line {line_no} on {day_type}")
+        return pd.DataFrame()
+
+    # Count tram passes per stop per hour
+    passes_per_hour = (
+        schedule_df.groupby(['Stop ID', 'Hour'], as_index=False)
+        .size()
+        .rename(columns={'size': 'passes'})
+    )
+
+    # Get traffic data
+    traffic_df = get_traffic_data_from_db()
+    if traffic_df.empty:
+        logging.warning("No traffic data available")
+        return pd.DataFrame()
+
+    # Normalize traffic data
+    traffic_df['normalized_traffic'] = (
+        (traffic_df['traffic_percent'] - traffic_df['traffic_percent'].min()) /
+        (traffic_df['traffic_percent'].max() - traffic_df['traffic_percent'].min() + 0.001)
+    ).clip(0.1, 0.9)
+
+    logging.info(f"Schedule DataFrame: {schedule_df.head()}")
+    logging.info(f"Traffic DataFrame: {traffic_df.head()}")
+    logging.info(f"Day Type Mapped: {day_type_mapped}")
+    logging.info(f"Passes Per Hour DataFrame: {passes_per_hour.head()}")
+
+    # Calculate optimal tram passes per stop per hour
+    optimal_passes = []
+    for stop_id in passes_per_hour['Stop ID'].unique():
+        logging.info(f"Processing Stop ID: {stop_id}")
+        stop_data = passes_per_hour[passes_per_hour['Stop ID'] == stop_id]
+        traffic_data = traffic_df[traffic_df['Stop ID'] == stop_id]
+        logging.info(f"Stop Data: {stop_data}")
+        logging.info(f"Traffic Data: {traffic_data}")
+
+        stop_matrix = []
+        for hour in stop_data['Hour'].unique():
+            schedule_passes = stop_data[stop_data['Hour'] == hour]['passes'].sum()
+            traffic_intensity = traffic_data[traffic_data['Hour'] == hour]['normalized_traffic'].mean()
+
+            logging.info(f"Hour: {hour}, Scheduled Passes: {schedule_passes}, Traffic Intensity: {traffic_intensity}")
+
+            if pd.isna(traffic_intensity):
+                traffic_intensity = 0.5  # Default to midpoint if no traffic data
+
+            optimal_trips = min(max_trips_per_hour * traffic_intensity, schedule_passes)
+            stop_matrix.append({
+                'Stop ID': stop_id,
+                'Hour': hour,
+                'Scheduled Passes': schedule_passes,
+                'Optimal Passes': round(optimal_trips)
+            })
+
+        optimal_passes.extend(stop_matrix)
+
+    logging.info(f"Final Optimal Passes DataFrame: {pd.DataFrame(optimal_passes).head()}")
+    logging.info(f"Optimized schedule without merging for line {line_no}, variant {variant}, day type {day_type}")
+    return pd.DataFrame(optimal_passes)
 
 def main():
     xml_folder = './xmls/'
-    debug_print_xml_structure(xml_folder)
-    # Example: optimize for line 4
     line_no = 4
     schedule_df = parse_xml_schedule_for_line(xml_folder, line_no)
     print(f'Schedule data from XML for line {line_no}:')
     print(schedule_df)
 
-    #debug_print_traffic_patterns_table()  # <-- Add this debug print
-
     traffic_df = get_traffic_data_from_db()
     print('Traffic data from DB:')
     print(traffic_df)
 
-    # Use direct allocation logic
     result = allocate_trips_directly(schedule_df, traffic_df)
     print('Optimized allocation:')
     print(result)
     result.to_csv(f'optimized_schedule_line_{line_no}.csv', index=False)
-    
 
-    traffic_df = get_traffic_data_from_db()
-    # Filter traffic data for the selected line
-    if not traffic_df.empty and 'Line no.' in traffic_df.columns:
-        traffic_df = traffic_df[traffic_df['Line no.'] == str(line_no)]
-        print('Traffic data from DB:')
-        print(traffic_df.head())
-        result = allocate_trips(traffic_df, schedule_df)
+    if not traffic_df.empty and not schedule_df.empty:
+        stop_ids = schedule_df['Stop ID'].unique().tolist()
+        relevant_traffic = traffic_df[traffic_df['Stop ID'].isin(stop_ids)]
+        print('Relevant traffic data for stops in this line/variant:')
+        print(relevant_traffic.head())
+        result = allocate_trips(relevant_traffic, schedule_df)
         print('Optimized allocation:')
         print(result.head())
-        result.to_csv(f'optimized_schedule_line_{line_no}.csv', index=False)
+        result.to_csv(f'optimized_schedule_line_{line_no}_merged.csv', index=False)
     else:
-        print('Traffic data from DB is empty or missing Line no. column.')
-# For Flask import: expose a function for multi-line optimization
+        print('Traffic data from DB or schedule data is empty.')
 
-def optimize_lines(period, lines, hour=None, day_type=None, variant=None):
-    """
-    For each selected line and variant, extract only that variant's route from XML, get stop_ids, aggregate their traffic data, and propose a schedule.
-    """
+def optimize_lines(_, lines, day_type=None, variant=None):
     xml_folder = './xmls/'
     results = []
+    traffic_df = get_traffic_data_from_db()
+
+    day_type_map = {
+        'workday': 'w dni robocze',
+        'saturday': 'Sobota',
+        'sunday': 'Niedziela'
+    }
+    day_type_mapped = day_type_map.get(day_type.lower(), day_type) if day_type else None
+
     for line_no in lines:
-        # Parse XML and extract only the selected variant's schedule
         schedule_df = parse_xml_schedule_for_line(xml_folder, line_no)
         if schedule_df.empty:
             continue
         if variant:
-            schedule_df = schedule_df[schedule_df['Variant'] == variant]
-        if day_type:
-            schedule_df = schedule_df[schedule_df['Day'].str.lower() == day_type.lower()]
+            schedule_df = schedule_df[schedule_df['Variant'].str.lower() == variant.lower()]
+        if day_type_mapped:
+            schedule_df = schedule_df[schedule_df['Day'].str.lower() == day_type_mapped.lower()]
         if schedule_df.empty:
             continue
-        # Get the route (ordered stop_ids) for this variant
-        route_stop_ids = schedule_df['Stop ID'].unique().tolist()
-        if not route_stop_ids:
-            continue
-        # Get traffic data for these stops
-        traffic_df = get_traffic_data_from_db()
-        relevant_traffic = traffic_df[traffic_df['Stop ID'].isin(route_stop_ids)]
+
+        stop_ids = schedule_df['Stop ID'].unique().tolist()
+        relevant_traffic = traffic_df[traffic_df['Stop ID'].isin(stop_ids)]
         if relevant_traffic.empty:
             continue
-        # Aggregate: average congestion per day/hour across all stops in the variant's route
+
         agg_traffic = (
             relevant_traffic.groupby(['Day', 'Hour'], as_index=False)
             .agg({'traffic_percent': 'mean'})
         )
-        # Propose a schedule: for each hour, set number of trips proportional to congestion (e.g., 1-7 trips)
-        min_t = agg_traffic['traffic_percent'].min()
-        max_t = agg_traffic['traffic_percent'].max()
+
+        min_t, max_t = agg_traffic['traffic_percent'].min(), agg_traffic['traffic_percent'].max()
         if max_t - min_t < 0.001:
             agg_traffic['normalized_traffic'] = 0.5
         else:
-            agg_traffic['normalized_traffic'] = (agg_traffic['traffic_percent'] - min_t) / (max_t - min_t + 0.001)
+            agg_traffic['normalized_traffic'] = (
+                (agg_traffic['traffic_percent'] - min_t) / (max_t - min_t + 0.001)
+            )
         agg_traffic['normalized_traffic'] = agg_traffic['normalized_traffic'].clip(0.1, 0.9)
-        max_trips_per_hour = 7
-        agg_traffic['proposed_trips'] = (agg_traffic['normalized_traffic'] * max_trips_per_hour).round().astype(int).clip(lower=1)
-        # Build results for frontend: one entry per hour
+
+        max_trips = 7
+        agg_traffic['proposed_trips'] = (
+            agg_traffic['normalized_traffic'] * max_trips
+        ).round().astype(int).clip(lower=1)
+
         for _, row in agg_traffic.iterrows():
             results.append({
                 'line': line_no,
-                'variant': variant if variant else '',
+                'variant': variant or '',
                 'day': row['Day'],
                 'hour': row['Hour'],
                 'proposed_trips': int(row['proposed_trips'])
             })
+
     return results
 
 if __name__ == '__main__':

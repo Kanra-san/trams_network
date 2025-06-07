@@ -951,11 +951,11 @@ async function initializeApp() {
       return data.data;
     }
 
-    async function runOptimizationAPI(line, dayType, variant) {
+    async function runOptimizationAPI(lines, dayType, variant) {
       const response = await fetch(`${API_BASE}/optimize`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ line, day_type: dayType, variant })
+        body: JSON.stringify({ lines, day_type: dayType, variant })
       });
       if (!response.ok) throw new Error('Failed to run optimization');
       const data = await response.json();
@@ -1740,9 +1740,6 @@ async function deleteConnectionAPI(fromId, toId) {
   try {
     showLoading(true);
     const variants = await fetchVariantsForLine(line);
-    
-    // Sort variants alphabetically by variant_name (case-insensitive)
-    variants.sort((a, b) => a.variant_name.localeCompare(b.variant_name, undefined, { sensitivity: 'base' }));
     
     if (variants && variants.length > 0) {
       variants.forEach(variant => {

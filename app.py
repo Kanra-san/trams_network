@@ -120,7 +120,16 @@ def get_stops_by_status():
     except Exception as e:
         return standard_response(False, message=str(e), status_code=500)
 
-
+@app.route('/api/lines', methods=['GET'])
+def get_all_lines():
+    try:
+        with db._get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT DISTINCT line_number FROM tram_lines ORDER BY line_number ASC")
+            lines = [row[0] for row in cursor.fetchall()]
+        return standard_response(True, lines)
+    except Exception as e:
+        return standard_response(False, message=str(e), status_code=500)
 
 @app.route('/api/stops', methods=['POST'])
 def add_stop():
@@ -170,10 +179,11 @@ def add_connection():
         if not all(key in data for key in ['from', 'to', 'weight']):
             return standard_response(False, message="Missing required fields", status_code=400)
 
+        # Swap from_stop and to_stop to correct direction for graph
         db_ops.add_connection(
             line_number=data.get('line', 'MANUAL'),
-            from_stop=data['from'],
-            to_stop=data['to'],
+            from_stop=data['to'],  # swapped
+            to_stop=data['from'],  # swapped
             weight=data['weight']
         )
         return standard_response(True, message="Connection added successfully")
@@ -311,82 +321,50 @@ def get_system_stats():
 @app.route('/api/optimize', methods=['POST'])
 def optimize_schedule():
     try:
-        data = request.get_json()
-        lines = data.get('lines', '').strip()
-        day_type = data.get('day_type', '').strip()
-        variant = data.get('variant', '').strip()
-        
-        # Parse inputs
-        line_numbers = [ln.strip() for ln in lines.split(',')] if lines else []
-        
-        # Get all lines if none specified
-        if not line_numbers:
-            with db._get_connection() as conn:
-                cursor = conn.cursor()
-                cursor.execute("SELECT DISTINCT line_number FROM connections")
-                line_numbers = [str(row[0]) for row in cursor.fetchall()]
-        
-        results = []
-        for line_no in line_numbers:
-            try:
-                logging.info(f"Processing line {line_no}")
-                
-                # Get schedule and traffic data
-                schedule_df = parse_xml_schedule_for_line('./xmls/', line_no)
-                if schedule_df.empty:
-                    logging.warning(f"Schedule data is empty for line {line_no}")
-                    continue
-                logging.debug(f"Schedule data for line {line_no}:\n{schedule_df.head()}")
-                
-                traffic_df = get_traffic_data_from_db()
-                if traffic_df.empty:
-                    logging.warning("Traffic data is empty")
-                    continue
-                logging.debug(f"Traffic data:\n{traffic_df.head()}")
-                
-                # Filter traffic data
-                traffic_df = traffic_df[traffic_df['Line no.'] == line_no]
-                if traffic_df.empty:
-                    logging.warning(f"Filtered traffic data is empty for line {line_no}")
-                    continue
-                logging.debug(f"Filtered traffic data for line {line_no}:\n{traffic_df.head()}")
-                
-                # Filter schedule by day_type and variant if provided
-                if day_type:
-                    schedule_df = schedule_df[schedule_df['Day'].str.lower() == day_type.lower()]
-                if variant:
-                    schedule_df = schedule_df[schedule_df['Variant'] == variant]
-                
-                # Allocate trips
-                allocation = allocate_trips(traffic_df, schedule_df)
-                if allocation.empty:
-                    logging.warning(f"Allocation results are empty for line {line_no}")
-                    continue
-                logging.debug(f"Allocation results for line {line_no}:\n{allocation.head()}")
-                
-                # Format results
-                for _, row in allocation.iterrows():
-                    results.append({
-                        'line': row['Line no.'],
-                        'day': row.get('Day', ''),
-                        'variant': row.get('Variant', ''),
-                        'current_trips': int(row['No. of courses']),
-                        'optimized_trips': int(row['allocated_trips'])
-                    })
-                    
-            except Exception as e:
-                logging.error(f"Error processing line {line_no}: {str(e)}")
-                continue
-                
-        if not results:
-            return standard_response(False, message="No optimization results found.", status_code=404)
-            
-        return standard_response(True, sorted(results, key=lambda x: (x['line'], x['day'], x['variant'])))
-        
+        # Log raw payload and headers for debugging
+        logging.info(f"Raw payload: {request.data}")
+        logging.info(f"Headers: {request.headers}")
+
+        # Parse input data from the request
+        data = request.get_json(force=True, silent=True)
+        logging.info(f"Parsed JSON data: {data}")
+
+        if not data:
+            return standard_response(False, message="Invalid JSON payload", status_code=400)
+
+        # Map 'lines' to 'line' if present
+        if 'lines' in data:
+            data['line'] = data.pop('lines')
+
+        # Validate field names and data types
+        required_fields = {'line': str, 'day_type': str, 'variant': str}
+        for field, field_type in required_fields.items():
+            if field not in data or not isinstance(data[field], field_type):
+                return standard_response(False, message=f"Invalid or missing field: {field}", status_code=400)
+
+        line = data['line']
+        day_type = data['day_type']
+        variant_id = data['variant']
+
+        # Validate that the variant ID belongs to the specified line
+        from variantdf import get_variant_ids_for_line
+        valid_variant_ids = get_variant_ids_for_line(int(line))
+        if variant_id not in valid_variant_ids:
+            return standard_response(False, message="Invalid variant ID for the specified line", status_code=400)
+
+        # Call the optimization function
+        from optimizer_from_db_and_xml import optimize_without_merging
+        optimization_result = optimize_without_merging(line, day_type, variant_id)
+
+        # Convert optimization result to JSON-serializable format
+        if isinstance(optimization_result, pd.DataFrame):
+            optimization_result = optimization_result.to_dict(orient='records')
+
+        return standard_response(True, data=optimization_result, message="Optimization successful")
+
     except Exception as e:
-        logging.error(f"Optimization error: {str(e)}")
-        return standard_response(False, message=f"Optimization failed: {str(e)}", status_code=500)
-    
+        logging.error(f"Error in optimize_schedule: {str(e)}")
+        return standard_response(False, message="Internal server error", status_code=500)
     
 
 @app.route('/api/optimize/download', methods=['POST'])
@@ -420,17 +398,15 @@ def download_optimized_schedule():
         return standard_response(False, message=str(e), status_code=500)
 
 
+from variantdf import get_variant_names_for_line
+
 @app.route('/api/variants/<line_no>', methods=['GET'])
 def get_variants(line_no):
     try:
         clean_line_no = int(line_no)
-        variants = get_variants_for_line(clean_line_no)
+        variants = get_variant_names_for_line(clean_line_no)
 
-        essential_fields = ['variant_id', 'variant_name', 'start_stop', 'end_stop']
-        cleaned_df = variants[essential_fields].dropna(subset=['variant_name'])
-
-        cleaned = cleaned_df.to_dict(orient='records')
-        return standard_response(True, cleaned)
+        return standard_response(True, variants)
 
     except Exception as e:
         app.logger.error(f"Variant fetch error for line {line_no}: {e}")
