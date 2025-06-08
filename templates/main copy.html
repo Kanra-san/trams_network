@@ -1481,7 +1481,6 @@ async function initializeNetworkGraph() {
         await refreshData();
         closeModal('delete-stop-modal');
         showNotification('Stop deleted successfully');
-        logRecentActivity('Delete Stop', stopId);
       } catch (error) {
         console.error('Error deleting stop:', error);
         showNotification(error.message, 'error');
@@ -1502,6 +1501,7 @@ async function initializeNetworkGraph() {
         showNotification('Please fill in all required fields', 'error');
         return;
       }
+
       try {
         showLoading(true);
         const response = await fetch(`${API_BASE}/stops`, {
@@ -1516,14 +1516,15 @@ async function initializeNetworkGraph() {
             connections: stopConnections ? stopConnections.split(',').map(conn => conn.trim()) : []
           })
         });
+
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(errorData.message || 'Failed to add stop');
         }
+
         await refreshData();
         closeModal('add-stop-modal');
         showNotification('Stop added successfully');
-        logRecentActivity('Add Stop', stopId);
       } catch (error) {
         console.error('Error adding stop:', error);
         showNotification(error.message, 'error');
@@ -1535,22 +1536,38 @@ async function initializeNetworkGraph() {
     async function toggleStopStatus() {
       try {
         showLoading(true);
+        
         const stopId = document.getElementById('toggle-stop-select').value;
         const newStatus = document.getElementById('toggle-stop-status').value;
+        
         if (!stopId) {
           throw new Error('Please select a stop');
         }
+        
         await toggleStopStatusAPI(stopId, newStatus === 'activate');
+        
+        // Refresh the UI
         await refreshData();
+        
+        // Close the modal
         closeModal('toggle-stop-modal');
+        
         showNotification(`Stop ${newStatus === 'activate' ? 'activated' : 'deactivated'} successfully`);
-        logRecentActivity(newStatus === 'activate' ? 'Activate Stop' : 'Deactivate Stop', stopId);
       } catch (error) {
         console.error('Error toggling stop status:', error);
         showNotification(error.message, 'error');
       } finally {
         showLoading(false);
       }
+    }
+
+    // Connection Management Functions
+    async function showAddConnectionModal() {
+      document.getElementById('add-connection-modal').style.display = 'flex';
+    }
+
+    async function showDeleteConnectionModal() {
+      document.getElementById('delete-connection-modal').style.display = 'flex';
     }
 
     async function addConnection() {
@@ -1561,16 +1578,22 @@ async function initializeNetworkGraph() {
         const line = document.getElementById('connection-line').value;
         const time = document.getElementById('connection-time').value;
         if (!fromStop || !toStop || !time) {
-          showNotification('Please fill in all required fields', 'error');
-          return;
+          throw new Error('Please fill all required fields');
         }
-        const connectionData = { from: fromStop, to: toStop, line, time: parseInt(time) };
+        // Use the stop ID directly (no split/slice)
+        const fromId = fromStop;
+        const toId = toStop;
+        const connectionData = {
+          from: fromId,
+          to: toId,
+          line: line || 'MANUAL',
+          weight: parseInt(time)
+        };
         await addConnectionAPI(connectionData);
         await initializeNetworkGraph();
         await refreshAllDropdowns();
         closeModal('add-connection-modal');
         showNotification('Connection added successfully');
-        logRecentActivity('Add Connection', `${fromStop} → ${toStop}`);
       } catch (error) {
         console.error('Error adding connection:', error);
         showNotification(error.message, 'error');
@@ -1585,15 +1608,16 @@ async function initializeNetworkGraph() {
         const fromStop = document.getElementById('delete-connection-from').value;
         const toStop = document.getElementById('delete-connection-to').value;
         if (!fromStop || !toStop) {
-          showNotification('Please select both stops', 'error');
-          return;
+          throw new Error('Please select both stops');
         }
-        await deleteConnectionAPI(fromStop, toStop);
+        // Use the stop ID directly (no split/slice)
+        const fromId = fromStop;
+        const toId = toStop;
+        await deleteConnectionAPI(fromId, toId);
         await initializeNetworkGraph();
         await refreshAllDropdowns();
         closeModal('delete-connection-modal');
         showNotification('Connection deleted successfully');
-        logRecentActivity('Delete Connection', `${fromStop} → ${toStop}`);
       } catch (error) {
         console.error('Error deleting connection:', error);
         showNotification(error.message, 'error');
@@ -1851,52 +1875,6 @@ async function populateOptimizationDropdowns() {
   }
 }
 // --- END CODE ---
-
-// Utility function to log recent activity
-function logRecentActivity(type, stopId) {
-  let activity = [];
-  try {
-    activity = JSON.parse(localStorage.getItem('recent_activity')) || [];
-  } catch (e) {
-    activity = [];
-  }
-  activity.unshift({
-    type: type,
-    stop_id: stopId,
-    timestamp: new Date().toISOString()
-  });
-  activity = activity.slice(0, 20);
-  localStorage.setItem('recent_activity', JSON.stringify(activity));
-  renderRecentActivity();
-}
-
-function renderRecentActivity() {
-  let activity = [];
-  try {
-    activity = JSON.parse(localStorage.getItem('recent_activity')) || [];
-  } catch (e) {
-    activity = [];
-  }
-  const activityTable = document.getElementById('recent-activity-table');
-  if (!activityTable) return;
-  activityTable.innerHTML = '';
-  activity.forEach(entry => {
-    const row = document.createElement('tr');
-    const date = new Date(entry.timestamp);
-    row.innerHTML = `
-      <td>${entry.type}</td>
-      <td>${entry.stop_id}</td>
-      <td>${date.toLocaleDateString()} ${date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
-    `;
-    activityTable.appendChild(row);
-  });
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', renderRecentActivity);
-} else {
-  renderRecentActivity();
-}
   </script>
 </body>
 </html>

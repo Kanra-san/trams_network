@@ -1,0 +1,61 @@
+### Updated Acceptance Test Scenarios
+
+1. **Test Adding a New Tram Stop**
+- **Requirement:** FR1: The system must allow operators to add new tram stops to the network.
+- **Test Procedure:** The user fills out a form with the stop's name, ID, latitude, and longitude, then clicks "Add Stop."
+- **Expected Result:** The app confirms the stop was added successfully and updates the list of stops.
+- **Test Result:** The system correctly adds the stop and updates the list.
+
+2. **Test Removing a Tram Stop**
+- **Requirement:** FR2: The system must allow operators to remove existing tram stops from the network.
+- **Test Procedure:** The user selects a stop from the list and clicks "Delete Stop."
+- **Expected Result:** The app confirms the stop was deleted successfully and updates the list of stops.
+- **Test Result:** The system correctly deletes the stop and updates the list.
+
+3. **Test Updating Tram Stop Status**
+- **Requirement:** FR3: The system must enable operators to temporarily disable or enable tram stops.
+- **Test Procedure:** The user selects a stop and changes its status to active or inactive, then clicks "Update Status."
+- **Expected Result:** The app confirms the status was updated successfully.
+- **Test Result:** The system correctly updates the stop's status.
+
+4. **Test Creating a Connection**
+- **Requirement:** FR4: The system must allow operators to create direct connections between tram stops.
+- **Test Procedure:** The user selects two stops and specifies the travel time, then clicks "Add Connection."
+- **Expected Result:** The app confirms the connection was added successfully.
+- **Test Result:** The system correctly adds the connection.
+
+5. **Test Removing a Connection**
+- **Requirement:** FR5: The system must allow operators to remove existing connections between tram stops.
+- **Test Procedure:** The user selects a connection and clicks "Delete Connection."
+- **Expected Result:** The app confirms the connection was deleted successfully.
+- **Test Result:** The system correctly deletes the connection.
+
+6. **Test Exporting Optimized Schedule**
+- **Requirement:** FR8: The system must allow exporting optimized schedules in CSV format.
+- **Test Procedure:** The user clicks "Export Schedule" after optimization.
+- **Expected Result:** The app generates and downloads a CSV file with the optimized schedule.
+- **Test Result:** The system correctly exports the schedule.
+
+7. **Test Optimizing Tram Schedule**
+- **Requirement:** FR9: The system must analyze passenger traffic data to optimize tram schedules.
+- **Test Procedure:** The user selects a tram line, day type, and variant, then clicks "Optimize Schedule."
+- **Expected Result:** The app displays the optimized schedule.
+- **Test Result:** The system correctly optimizes the schedule.
+
+8. **Test Viewing Network Graph**
+- **Requirement:** FR12: The system must display the tram network as an interactive graph.
+- **Test Procedure:** The user navigates to the "Network Graph" section and clicks "View Graph."
+- **Expected Result:** The app displays the network graph with nodes and edges.
+- **Test Result:** The system correctly shows the network graph.
+
+9. **Test Real-Time Traffic Visualization**
+- **Requirement:** FR13: The system must visually indicate real-time passenger traffic intensity.
+- **Test Procedure:** The user views the network graph and observes color-coded nodes.
+- **Expected Result:** The app displays traffic intensity using color codes.
+- **Test Result:** The system correctly visualizes traffic intensity.
+
+10. **Test Dashboard Analytics**
+- **Requirement:** FR16: The system should include a dashboard displaying performance analytics.
+- **Test Procedure:** The user navigates to the dashboard and views analytics.
+- **Expected Result:** The app displays performance metrics such as total stops, active stops, and routes.
+- **Test Result:** The system correctly shows analytics on the dashboard.

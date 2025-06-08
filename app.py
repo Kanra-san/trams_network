@@ -322,12 +322,12 @@ def get_system_stats():
 def optimize_schedule():
     try:
         # Log raw payload and headers for debugging
-        logging.info(f"Raw payload: {request.data}")
-        logging.info(f"Headers: {request.headers}")
+        #logging.info(f"Raw payload: {request.data}")
+        #logging.info(f"Headers: {request.headers}")
 
         # Parse input data from the request
         data = request.get_json(force=True, silent=True)
-        logging.info(f"Parsed JSON data: {data}")
+        #logging.info(f"Parsed JSON data: {data}")
 
         if not data:
             return standard_response(False, message="Invalid JSON payload", status_code=400)
